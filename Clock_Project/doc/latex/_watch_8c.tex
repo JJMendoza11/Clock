@@ -1,0 +1,150 @@
+\hypertarget{_watch_8c}{}\section{C\+:/\+Users/lucky/\+Documents/\+Proyectos/\+Clock\+\_\+\+Project/\+Clock/\+Clock\+\_\+\+Project/source/\+W\+A\+T\+C\+H\+\_\+\+D\+V\+R/\+Watch.c File Reference}
+\label{_watch_8c}\index{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/WATCH\_DVR/Watch.c@{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/WATCH\_DVR/Watch.c}}
+
+
+Get the necessary info to show on the display Created on\+: 10 ago. 2020.  
+
+
+{\ttfamily \#include \char`\"{}Prototype.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Watch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}M\+K\+L25\+Z4.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_watch_8c_ac7a11354352bc230790c976509d5d624}{Clock\+\_\+v\+Display\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Create the graphics to display the time First create an horizontal line with the length of the screen at the height of 12 from top to butter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_watch_8c_ae02898b9a9e00cb7409834caff1327ff}{Clock\+\_\+v\+Set\+Day}} (void)
+\begin{DoxyCompactList}\small\item\em Mark the current day of the week depending on the value of u8\+Week\+Day. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_watch_8c_a39c248adb618bfabb9046e648c8a567f}{Clock\+\_\+v\+Set\+Full\+Date}} (void)
+\begin{DoxyCompactList}\small\item\em Write the current date on the screen. The data is saved on Clock\+\_\+st\+Date.\+s\+Date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_watch_8c_a777f12abda41d603c1aac0345df9c9fb}{Clock\+\_\+v\+Set\+Full\+Time}} (void)
+\begin{DoxyCompactList}\small\item\em Write the current time on the screen. The data is saved on Clock\+\_\+st\+Data.\+s\+Time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_watch_8c_ac54e8857a8af537eb5a3cf6f371272a1}{Clock\+\_\+v\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Init the menu of the clock when it called for the first time. Create the \char`\"{}\+G\+U\+I\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Get the necessary info to show on the display Created on\+: 10 ago. 2020. 
+
+\mbox{\hyperlink{_watch_8c}{Watch.\+c}}
+
+\begin{DoxyAuthor}{Author}
+\+: lucky 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_watch_8c_ac7a11354352bc230790c976509d5d624}\label{_watch_8c_ac7a11354352bc230790c976509d5d624}} 
+\index{Watch.c@{Watch.c}!Clock\_vDisplayMenu@{Clock\_vDisplayMenu}}
+\index{Clock\_vDisplayMenu@{Clock\_vDisplayMenu}!Watch.c@{Watch.c}}
+\subsubsection{\texorpdfstring{Clock\_vDisplayMenu()}{Clock\_vDisplayMenu()}}
+{\footnotesize\ttfamily void Clock\+\_\+v\+Display\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create the graphics to display the time First create an horizontal line with the length of the screen at the height of 12 from top to butter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file Watch.\+c.
+
+\mbox{\Hypertarget{_watch_8c_ac54e8857a8af537eb5a3cf6f371272a1}\label{_watch_8c_ac54e8857a8af537eb5a3cf6f371272a1}} 
+\index{Watch.c@{Watch.c}!Clock\_vInit@{Clock\_vInit}}
+\index{Clock\_vInit@{Clock\_vInit}!Watch.c@{Watch.c}}
+\subsubsection{\texorpdfstring{Clock\_vInit()}{Clock\_vInit()}}
+{\footnotesize\ttfamily void Clock\+\_\+v\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Init the menu of the clock when it called for the first time. Create the \char`\"{}\+G\+U\+I\char`\"{}. 
+
+\begin{DoxyPrecond}{Precondition}
+The component \char`\"{}\+C\+O\+M\+P\+N\+A\+M\+E\char`\"{} has to be initialized. for the clock, asking for the Time\+Data to \char`\"{}\+C\+O\+M\+P\+N\+A\+M\+E\char`\"{}. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Watch.\+c.
+
+\mbox{\Hypertarget{_watch_8c_ae02898b9a9e00cb7409834caff1327ff}\label{_watch_8c_ae02898b9a9e00cb7409834caff1327ff}} 
+\index{Watch.c@{Watch.c}!Clock\_vSetDay@{Clock\_vSetDay}}
+\index{Clock\_vSetDay@{Clock\_vSetDay}!Watch.c@{Watch.c}}
+\subsubsection{\texorpdfstring{Clock\_vSetDay()}{Clock\_vSetDay()}}
+{\footnotesize\ttfamily void Clock\+\_\+v\+Set\+Day (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Mark the current day of the week depending on the value of u8\+Week\+Day. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Watch.\+c.
+
+\mbox{\Hypertarget{_watch_8c_a39c248adb618bfabb9046e648c8a567f}\label{_watch_8c_a39c248adb618bfabb9046e648c8a567f}} 
+\index{Watch.c@{Watch.c}!Clock\_vSetFullDate@{Clock\_vSetFullDate}}
+\index{Clock\_vSetFullDate@{Clock\_vSetFullDate}!Watch.c@{Watch.c}}
+\subsubsection{\texorpdfstring{Clock\_vSetFullDate()}{Clock\_vSetFullDate()}}
+{\footnotesize\ttfamily void Clock\+\_\+v\+Set\+Full\+Date (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Write the current date on the screen. The data is saved on Clock\+\_\+st\+Date.\+s\+Date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file Watch.\+c.
+
+\mbox{\Hypertarget{_watch_8c_a777f12abda41d603c1aac0345df9c9fb}\label{_watch_8c_a777f12abda41d603c1aac0345df9c9fb}} 
+\index{Watch.c@{Watch.c}!Clock\_vSetFullTime@{Clock\_vSetFullTime}}
+\index{Clock\_vSetFullTime@{Clock\_vSetFullTime}!Watch.c@{Watch.c}}
+\subsubsection{\texorpdfstring{Clock\_vSetFullTime()}{Clock\_vSetFullTime()}}
+{\footnotesize\ttfamily void Clock\+\_\+v\+Set\+Full\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Write the current time on the screen. The data is saved on Clock\+\_\+st\+Data.\+s\+Time. 
+
+fn void \mbox{\hyperlink{_watch_8c_a777f12abda41d603c1aac0345df9c9fb}{Clock\+\_\+v\+Set\+Full\+Time(void)}} 
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Watch.\+c.
+

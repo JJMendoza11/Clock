@@ -1,0 +1,127 @@
+\hypertarget{_i2_c_drive_8h}{}\section{C\+:/\+Users/lucky/\+Documents/\+Proyectos/\+Clock\+\_\+\+Project/\+Clock/\+Clock\+\_\+\+Project/source/\+I2\+C\+\_\+\+D\+V\+R/\+I2\+C\+Drive.h File Reference}
+\label{_i2_c_drive_8h}\index{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/I2C\_DVR/I2CDrive.h@{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/I2C\_DVR/I2CDrive.h}}
+
+
+It contain the public function that can be called.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}
+\item 
+typedef unsigned short \mbox{\hyperlink{_i2_c_drive_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_i2_c_drive_8h_ab855cdca163146765505196a84636d8d}{I2\+C\+\_\+v\+Driver\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em This function initialize the I2C peripheral as master. The BW it set for 100m/s. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i2_c_drive_8h_a3e02a46145f48078e2b2f42f33192686}{I2\+C\+\_\+vfn\+Slave\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em This function set the kl as slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_i2_c_drive_8h_ae9d97c49512d27f38ca2f3d8e789e518}{I2\+C\+\_\+vfn\+Send\+Data}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$u8\+Data, \mbox{\hyperlink{_i2_c_drive_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} Size\+Data)
+\begin{DoxyCompactList}\small\item\em The function receive a pointer to the data it has to send. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+It contain the public function that can be called. 
+
+\mbox{\hyperlink{_i2_c_drive_8h}{I2\+C\+Drive.\+h}}
+
+Created on\+: 10 ago. 2020 \begin{DoxyAuthor}{Author}
+\+: lucky 
+\end{DoxyAuthor}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_i2_c_drive_8h_a273cf69d639a59973b6019625df33e30}\label{_i2_c_drive_8h_a273cf69d639a59973b6019625df33e30}} 
+\index{I2CDrive.h@{I2CDrive.h}!uint16\_t@{uint16\_t}}
+\index{uint16\_t@{uint16\_t}!I2CDrive.h@{I2CDrive.h}}
+\subsubsection{\texorpdfstring{uint16\_t}{uint16\_t}}
+{\footnotesize\ttfamily typedef unsigned short \mbox{\hyperlink{_i2_c_drive_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}
+
+
+
+Definition at line 15 of file I2\+C\+Drive.\+h.
+
+\mbox{\Hypertarget{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}\label{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}} 
+\index{I2CDrive.h@{I2CDrive.h}!uint8\_t@{uint8\_t}}
+\index{uint8\_t@{uint8\_t}!I2CDrive.h@{I2CDrive.h}}
+\subsubsection{\texorpdfstring{uint8\_t}{uint8\_t}}
+{\footnotesize\ttfamily typedef unsigned char \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}
+
+
+
+Definition at line 14 of file I2\+C\+Drive.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_i2_c_drive_8h_ab855cdca163146765505196a84636d8d}\label{_i2_c_drive_8h_ab855cdca163146765505196a84636d8d}} 
+\index{I2CDrive.h@{I2CDrive.h}!I2C\_vDriverInit@{I2C\_vDriverInit}}
+\index{I2C\_vDriverInit@{I2C\_vDriverInit}!I2CDrive.h@{I2CDrive.h}}
+\subsubsection{\texorpdfstring{I2C\_vDriverInit()}{I2C\_vDriverInit()}}
+{\footnotesize\ttfamily I2\+C\+\_\+v\+Driver\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function initialize the I2C peripheral as master. The BW it set for 100m/s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file I2\+C\+Driver.\+c.
+
+\mbox{\Hypertarget{_i2_c_drive_8h_ae9d97c49512d27f38ca2f3d8e789e518}\label{_i2_c_drive_8h_ae9d97c49512d27f38ca2f3d8e789e518}} 
+\index{I2CDrive.h@{I2CDrive.h}!I2C\_vfnSendData@{I2C\_vfnSendData}}
+\index{I2C\_vfnSendData@{I2C\_vfnSendData}!I2CDrive.h@{I2CDrive.h}}
+\subsubsection{\texorpdfstring{I2C\_vfnSendData()}{I2C\_vfnSendData()}}
+{\footnotesize\ttfamily I2\+C\+\_\+vfn\+Send\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{u8\+Data,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{Size\+Data }\end{DoxyParamCaption})}
+
+
+
+The function receive a pointer to the data it has to send. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u8\+Data} & Pointer to the message to send. \\
+\hline
+{\em Size\+Data} & Specifie the length of the buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the message was send correctly or not. 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file I2\+C\+Driver.\+c.
+
+\mbox{\Hypertarget{_i2_c_drive_8h_a3e02a46145f48078e2b2f42f33192686}\label{_i2_c_drive_8h_a3e02a46145f48078e2b2f42f33192686}} 
+\index{I2CDrive.h@{I2CDrive.h}!I2C\_vfnSlaveInit@{I2C\_vfnSlaveInit}}
+\index{I2C\_vfnSlaveInit@{I2C\_vfnSlaveInit}!I2CDrive.h@{I2CDrive.h}}
+\subsubsection{\texorpdfstring{I2C\_vfnSlaveInit()}{I2C\_vfnSlaveInit()}}
+{\footnotesize\ttfamily I2\+C\+\_\+vfn\+Slave\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function set the kl as slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file I2\+C\+Driver.\+c.
+

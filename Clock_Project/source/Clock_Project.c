@@ -34,13 +34,18 @@
  */
 
 /* TODO: insert other include files here. */
+#include "Prototype.h"
 
+#include "I2CDrive.h"
+#include "Watch.h"
 /* TODO: insert other definitions and declarations here. */
 
 /*
  * @brief   Application entry point.
  */
 int main(void) {
+	I2C_vDriverInit();
+	Clock_vInit();
 
     while(1) {
     }

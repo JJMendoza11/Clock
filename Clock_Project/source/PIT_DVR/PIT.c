@@ -46,6 +46,12 @@ void Pit_vfnSetTime(uint8 u8channel, uint16 Time_in_ms)
 	PIT->CHANNEL[u8channel].LDVAL = u32LDVal;
 }
 
+/**
+ * @param u8Channel: Indicated the channel to use for the PIT's clock
+ * @param bSet: Start/Stop the PIT counter.
+ *
+ */
+
 void PIT_vfnStartPit(uint8 u8Channel, bool bSet)
 {
 	stPitConfiguration[u8Channel].bPitState = bSet;
@@ -62,7 +68,6 @@ void PIT_vfnStartPit(uint8 u8Channel, bool bSet)
 void PIT_IRQ(void){
 	if (PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK)
 	{
-		MasterClock();
 		PIT->CHANNEL[0].TFLG |= PIT_TFLG_TIF_MASK;
 	}
 	if (PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK)

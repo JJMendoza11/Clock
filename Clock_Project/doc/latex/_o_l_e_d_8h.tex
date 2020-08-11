@@ -1,0 +1,284 @@
+\hypertarget{_o_l_e_d_8h}{}\section{C\+:/\+Users/lucky/\+Documents/\+Proyectos/\+Clock\+\_\+\+Project/\+Clock/\+Clock\+\_\+\+Project/source/\+O\+L\+E\+D\+\_\+\+D\+V\+R/\+O\+L\+ED.h File Reference}
+\label{_o_l_e_d_8h}\index{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/OLED\_DVR/OLED.h@{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/OLED\_DVR/OLED.h}}
+{\ttfamily \#include \char`\"{}Prototype.\+h\char`\"{}}\newline
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840}{O\+L\+E\+D\+\_\+en\+Num\+Pag}} \{ \newline
+\mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a0bb7bdad23fe4ea631af496d4718bdb5}{O\+L\+E\+D\+\_\+en\+Page1}} = 0, 
+\mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a588862c35413d62d80c9460f8006f1c1}{O\+L\+E\+D\+\_\+en\+Page2}}, 
+\mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a00ca955394ad0643cfd99fd9be8631ce}{O\+L\+E\+D\+\_\+en\+Page3}}, 
+\mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840af5afd662a9db47942deb1fd9e84acfaf}{O\+L\+E\+D\+\_\+en\+Page4}}, 
+\newline
+\mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840ad465ead2e3250aa9f1718887be4f052b}{O\+L\+E\+D\+\_\+en\+Total\+Pages}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a0ea69790f95cedd771d53f30d5545a12}{O\+L\+E\+D\+\_\+v\+Init}} (void)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a0b3d1ff7895ed11f57ee0912027c9e96}{S\+S\+D1306\+\_\+\+Full\+Display}} (void)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a89530cc86831611e9356ce436afeac8f}{S\+S\+D1306\+\_\+\+Shrt\+Display}} (\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+P1, \mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+P2, \mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Px1, \mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Px2)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_ad5bd4b4ef780a7be5da231d487207c75}{S\+S\+D1306\+\_\+\+Clear\+Display}} (void)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a01a03d2b26960aa90105d03191117da5}{S\+S\+D1306\+\_\+\+Draw\+Pixel}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \+\_\+\+Bool color)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a55d085037035872c234a720c0a0c5f4f}{S\+S\+D1306\+\_\+\+Draw\+Line}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x0, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y0, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x1, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y1, \+\_\+\+Bool color)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a8236f78e204484dcdca6075665988ca7}{S\+S\+D1306\+\_\+\+Draw\+Fast\+H\+Line}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} w, \+\_\+\+Bool color)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a7a2d14afe671f904ebce62b22d61178a}{S\+S\+D1306\+\_\+\+Draw\+Fast\+V\+Line}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} h, \+\_\+\+Bool color)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a2537c9c8e617db7a0b437fee48af8ac8}{S\+S\+D1306\+\_\+\+Fill\+Rect}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} w, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} h, \+\_\+\+Bool color)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a346de580e5f6aae112aa88e954b08033}{S\+S\+D1306\+\_\+\+Draw\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_aa648c462c9097ffbb34b9e77cdc408ea}{S\+S\+D1306\+\_\+\+Draw\+Rect}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} w, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} h)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a89c8a511c60e38a9c217c079cb3f2c14}{S\+S\+D1306\+\_\+\+Draw\+Triangle}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x0, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y0, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x1, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y1, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x2, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y2)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a21d307577bf0ce4501aeb7529f18cc21}{S\+S\+D1306\+\_\+\+Goto\+XY}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_addc36309ae29ab42287549f58282375b}{S\+S\+D1306\+\_\+\+Text\+Size}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} t\+\_\+size)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a0a44c4164c014c663fb5f6f178b10886}{S\+S\+D1306\+\_\+\+Print}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} c)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a0434bcabc8e12c8c7caccbf17fcbc7eb}{S\+S\+D1306\+\_\+\+Draw\+Text}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, char $\ast$\+\_\+text, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} size)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a9ee704474e74a1040aa59eca375789de}{S\+S\+D1306\+\_\+\+R\+O\+M\+B\+MP}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$bitmap, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} w, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} h)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a3ce1da29b77e083dc4be12c49d2fbcd4}{S\+S\+D1306\+\_\+\+I\+N\+V\+E\+R\+SE}} (\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} x0, \mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} y0)
+\item 
+void \mbox{\hyperlink{_o_l_e_d_8h_a4194203887ea33dead61965b554b2b05}{S\+S\+D1306\+\_\+\+Stop\+Scroll}} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840}\label{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840}} 
+\index{OLED.h@{OLED.h}!OLED\_enNumPag@{OLED\_enNumPag}}
+\index{OLED\_enNumPag@{OLED\_enNumPag}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{OLED\_enNumPag}{OLED\_enNumPag}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840}{O\+L\+E\+D\+\_\+en\+Num\+Pag}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OLED\_enPage1@{OLED\_enPage1}!OLED.h@{OLED.h}}\index{OLED.h@{OLED.h}!OLED\_enPage1@{OLED\_enPage1}}}\mbox{\Hypertarget{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a0bb7bdad23fe4ea631af496d4718bdb5}\label{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a0bb7bdad23fe4ea631af496d4718bdb5}} 
+O\+L\+E\+D\+\_\+en\+Page1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OLED\_enPage2@{OLED\_enPage2}!OLED.h@{OLED.h}}\index{OLED.h@{OLED.h}!OLED\_enPage2@{OLED\_enPage2}}}\mbox{\Hypertarget{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a588862c35413d62d80c9460f8006f1c1}\label{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a588862c35413d62d80c9460f8006f1c1}} 
+O\+L\+E\+D\+\_\+en\+Page2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OLED\_enPage3@{OLED\_enPage3}!OLED.h@{OLED.h}}\index{OLED.h@{OLED.h}!OLED\_enPage3@{OLED\_enPage3}}}\mbox{\Hypertarget{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a00ca955394ad0643cfd99fd9be8631ce}\label{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840a00ca955394ad0643cfd99fd9be8631ce}} 
+O\+L\+E\+D\+\_\+en\+Page3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OLED\_enPage4@{OLED\_enPage4}!OLED.h@{OLED.h}}\index{OLED.h@{OLED.h}!OLED\_enPage4@{OLED\_enPage4}}}\mbox{\Hypertarget{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840af5afd662a9db47942deb1fd9e84acfaf}\label{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840af5afd662a9db47942deb1fd9e84acfaf}} 
+O\+L\+E\+D\+\_\+en\+Page4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OLED\_enTotalPages@{OLED\_enTotalPages}!OLED.h@{OLED.h}}\index{OLED.h@{OLED.h}!OLED\_enTotalPages@{OLED\_enTotalPages}}}\mbox{\Hypertarget{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840ad465ead2e3250aa9f1718887be4f052b}\label{_o_l_e_d_8h_a8d57777bfe3961ced9d0a2f8180e9840ad465ead2e3250aa9f1718887be4f052b}} 
+O\+L\+E\+D\+\_\+en\+Total\+Pages&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 13 of file O\+L\+E\+D.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_o_l_e_d_8h_a0ea69790f95cedd771d53f30d5545a12}\label{_o_l_e_d_8h_a0ea69790f95cedd771d53f30d5545a12}} 
+\index{OLED.h@{OLED.h}!OLED\_vInit@{OLED\_vInit}}
+\index{OLED\_vInit@{OLED\_vInit}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{OLED\_vInit()}{OLED\_vInit()}}
+{\footnotesize\ttfamily void O\+L\+E\+D\+\_\+v\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_ad5bd4b4ef780a7be5da231d487207c75}\label{_o_l_e_d_8h_ad5bd4b4ef780a7be5da231d487207c75}} 
+\index{OLED.h@{OLED.h}!SSD1306\_ClearDisplay@{SSD1306\_ClearDisplay}}
+\index{SSD1306\_ClearDisplay@{SSD1306\_ClearDisplay}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_ClearDisplay()}{SSD1306\_ClearDisplay()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Clear\+Display (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a346de580e5f6aae112aa88e954b08033}\label{_o_l_e_d_8h_a346de580e5f6aae112aa88e954b08033}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawCircle@{SSD1306\_DrawCircle}}
+\index{SSD1306\_DrawCircle@{SSD1306\_DrawCircle}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawCircle()}{SSD1306\_DrawCircle()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Circle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r }\end{DoxyParamCaption})}
+
+
+
+Definition at line 198 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a8236f78e204484dcdca6075665988ca7}\label{_o_l_e_d_8h_a8236f78e204484dcdca6075665988ca7}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawFastHLine@{SSD1306\_DrawFastHLine}}
+\index{SSD1306\_DrawFastHLine@{SSD1306\_DrawFastHLine}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawFastHLine()}{SSD1306\_DrawFastHLine()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Fast\+H\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{w,  }\item[{\+\_\+\+Bool}]{color }\end{DoxyParamCaption})}
+
+
+
+Definition at line 181 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a7a2d14afe671f904ebce62b22d61178a}\label{_o_l_e_d_8h_a7a2d14afe671f904ebce62b22d61178a}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawFastVLine@{SSD1306\_DrawFastVLine}}
+\index{SSD1306\_DrawFastVLine@{SSD1306\_DrawFastVLine}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawFastVLine()}{SSD1306\_DrawFastVLine()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Fast\+V\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{h,  }\item[{\+\_\+\+Bool}]{color }\end{DoxyParamCaption})}
+
+
+
+Definition at line 186 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a55d085037035872c234a720c0a0c5f4f}\label{_o_l_e_d_8h_a55d085037035872c234a720c0a0c5f4f}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawLine@{SSD1306\_DrawLine}}
+\index{SSD1306\_DrawLine@{SSD1306\_DrawLine}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawLine()}{SSD1306\_DrawLine()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x0,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y0,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x1,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y1,  }\item[{\+\_\+\+Bool}]{color }\end{DoxyParamCaption})}
+
+
+
+Definition at line 137 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a01a03d2b26960aa90105d03191117da5}\label{_o_l_e_d_8h_a01a03d2b26960aa90105d03191117da5}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawPixel@{SSD1306\_DrawPixel}}
+\index{SSD1306\_DrawPixel@{SSD1306\_DrawPixel}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawPixel()}{SSD1306\_DrawPixel()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\+\_\+\+Bool}]{color }\end{DoxyParamCaption})}
+
+
+
+Definition at line 129 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aa648c462c9097ffbb34b9e77cdc408ea}\label{_o_l_e_d_8h_aa648c462c9097ffbb34b9e77cdc408ea}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawRect@{SSD1306\_DrawRect}}
+\index{SSD1306\_DrawRect@{SSD1306\_DrawRect}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawRect()}{SSD1306\_DrawRect()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{w,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{h }\end{DoxyParamCaption})}
+
+
+
+Definition at line 233 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a0434bcabc8e12c8c7caccbf17fcbc7eb}\label{_o_l_e_d_8h_a0434bcabc8e12c8c7caccbf17fcbc7eb}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawText@{SSD1306\_DrawText}}
+\index{SSD1306\_DrawText@{SSD1306\_DrawText}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawText()}{SSD1306\_DrawText()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{char $\ast$}]{\+\_\+text,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 324 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a89c8a511c60e38a9c217c079cb3f2c14}\label{_o_l_e_d_8h_a89c8a511c60e38a9c217c079cb3f2c14}} 
+\index{OLED.h@{OLED.h}!SSD1306\_DrawTriangle@{SSD1306\_DrawTriangle}}
+\index{SSD1306\_DrawTriangle@{SSD1306\_DrawTriangle}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_DrawTriangle()}{SSD1306\_DrawTriangle()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Draw\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x0,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y0,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x1,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y1,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x2,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 241 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a2537c9c8e617db7a0b437fee48af8ac8}\label{_o_l_e_d_8h_a2537c9c8e617db7a0b437fee48af8ac8}} 
+\index{OLED.h@{OLED.h}!SSD1306\_FillRect@{SSD1306\_FillRect}}
+\index{SSD1306\_FillRect@{SSD1306\_FillRect}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_FillRect()}{SSD1306\_FillRect()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Fill\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{w,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{h,  }\item[{\+\_\+\+Bool}]{color }\end{DoxyParamCaption})}
+
+
+
+Definition at line 192 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a0b3d1ff7895ed11f57ee0912027c9e96}\label{_o_l_e_d_8h_a0b3d1ff7895ed11f57ee0912027c9e96}} 
+\index{OLED.h@{OLED.h}!SSD1306\_FullDisplay@{SSD1306\_FullDisplay}}
+\index{SSD1306\_FullDisplay@{SSD1306\_FullDisplay}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_FullDisplay()}{SSD1306\_FullDisplay()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Full\+Display (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a21d307577bf0ce4501aeb7529f18cc21}\label{_o_l_e_d_8h_a21d307577bf0ce4501aeb7529f18cc21}} 
+\index{OLED.h@{OLED.h}!SSD1306\_GotoXY@{SSD1306\_GotoXY}}
+\index{SSD1306\_GotoXY@{SSD1306\_GotoXY}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_GotoXY()}{SSD1306\_GotoXY()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Goto\+XY (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 248 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a3ce1da29b77e083dc4be12c49d2fbcd4}\label{_o_l_e_d_8h_a3ce1da29b77e083dc4be12c49d2fbcd4}} 
+\index{OLED.h@{OLED.h}!SSD1306\_INVERSE@{SSD1306\_INVERSE}}
+\index{SSD1306\_INVERSE@{SSD1306\_INVERSE}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_INVERSE()}{SSD1306\_INVERSE()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+I\+N\+V\+E\+R\+SE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x0,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 350 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a0a44c4164c014c663fb5f6f178b10886}\label{_o_l_e_d_8h_a0a44c4164c014c663fb5f6f178b10886}} 
+\index{OLED.h@{OLED.h}!SSD1306\_Print@{SSD1306\_Print}}
+\index{SSD1306\_Print@{SSD1306\_Print}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_Print()}{SSD1306\_Print()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 263 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a9ee704474e74a1040aa59eca375789de}\label{_o_l_e_d_8h_a9ee704474e74a1040aa59eca375789de}} 
+\index{OLED.h@{OLED.h}!SSD1306\_ROMBMP@{SSD1306\_ROMBMP}}
+\index{SSD1306\_ROMBMP@{SSD1306\_ROMBMP}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_ROMBMP()}{SSD1306\_ROMBMP()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+R\+O\+M\+B\+MP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{x,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{y,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{bitmap,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{w,  }\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{h }\end{DoxyParamCaption})}
+
+
+
+Definition at line 336 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a89530cc86831611e9356ce436afeac8f}\label{_o_l_e_d_8h_a89530cc86831611e9356ce436afeac8f}} 
+\index{OLED.h@{OLED.h}!SSD1306\_ShrtDisplay@{SSD1306\_ShrtDisplay}}
+\index{SSD1306\_ShrtDisplay@{SSD1306\_ShrtDisplay}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_ShrtDisplay()}{SSD1306\_ShrtDisplay()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Shrt\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+P1,  }\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+P2,  }\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Px1,  }\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Px2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 90 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a4194203887ea33dead61965b554b2b05}\label{_o_l_e_d_8h_a4194203887ea33dead61965b554b2b05}} 
+\index{OLED.h@{OLED.h}!SSD1306\_StopScroll@{SSD1306\_StopScroll}}
+\index{SSD1306\_StopScroll@{SSD1306\_StopScroll}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_StopScroll()}{SSD1306\_StopScroll()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Stop\+Scroll (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 358 of file O\+L\+E\+D.\+c.
+
+\mbox{\Hypertarget{_o_l_e_d_8h_addc36309ae29ab42287549f58282375b}\label{_o_l_e_d_8h_addc36309ae29ab42287549f58282375b}} 
+\index{OLED.h@{OLED.h}!SSD1306\_TextSize@{SSD1306\_TextSize}}
+\index{SSD1306\_TextSize@{SSD1306\_TextSize}!OLED.h@{OLED.h}}
+\subsubsection{\texorpdfstring{SSD1306\_TextSize()}{SSD1306\_TextSize()}}
+{\footnotesize\ttfamily void S\+S\+D1306\+\_\+\+Text\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i2_c_drive_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{t\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 256 of file O\+L\+E\+D.\+c.
+

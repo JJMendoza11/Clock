@@ -1,0 +1,108 @@
+\hypertarget{_p_i_t_8c}{}\section{C\+:/\+Users/lucky/\+Documents/\+Proyectos/\+Clock\+\_\+\+Project/\+Clock/\+Clock\+\_\+\+Project/source/\+P\+I\+T\+\_\+\+D\+V\+R/\+P\+IT.c File Reference}
+\label{_p_i_t_8c}\index{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/PIT\_DVR/PIT.c@{C:/Users/lucky/Documents/Proyectos/Clock\_Project/Clock/Clock\_Project/source/PIT\_DVR/PIT.c}}
+{\ttfamily \#include \char`\"{}M\+K\+L25\+Z4.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}P\+I\+T.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}core\+\_\+cm0plus.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_i_t_8c_af90d3bb89a431c82317950ad89bb2efe}{Pit\+\_\+vfn\+Set\+Time}} (\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8channel, \mbox{\hyperlink{_p_i_t_8h_a05f6b0ae8f6a6e135b0e290c25fe0e4e}{uint16}} Time\+\_\+in\+\_\+ms)
+\item 
+void \mbox{\hyperlink{_p_i_t_8c_a013421bc722cc969eff22ef9aeaf2604}{P\+I\+T\+\_\+vfn\+Timer\+Enable}} (\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Channel)
+\item 
+void \mbox{\hyperlink{_p_i_t_8c_a0ec7c39403580e418f4b1090ed286ace}{P\+I\+T\+\_\+vfn\+Timer\+Disable}} (\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Channel)
+\item 
+void \mbox{\hyperlink{_p_i_t_8c_a18edc6957e8a52e6c31a976a5746742d}{P\+I\+T\+\_\+vfn\+Set\+Pit}} (\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Channel, \mbox{\hyperlink{_p_i_t_8h_a05f6b0ae8f6a6e135b0e290c25fe0e4e}{uint16}} u16\+Period\+\_\+ms, \mbox{\hyperlink{_p_i_t_8h_abb452686968e48b67397da5f97445f5b}{bool}} b\+Interruption)
+\item 
+void \mbox{\hyperlink{_p_i_t_8c_a1ad137955c9a9a57f30839a2668f46e9}{P\+I\+T\+\_\+vfn\+Start\+Pit}} (\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Channel, \mbox{\hyperlink{_p_i_t_8h_abb452686968e48b67397da5f97445f5b}{bool}} b\+Set)
+\item 
+void \mbox{\hyperlink{_p_i_t_8c_a0c8d4e9f227809ae3d56f40af905e376}{P\+I\+T\+\_\+\+I\+RQ}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtst_init_pit}{tst\+Init\+Pit}} \mbox{\hyperlink{_p_i_t_8c_a34c7e3d1ed249e80a575010a3c536d25}{st\+Pit\+Configuration}} \mbox{[}\mbox{\hyperlink{_p_i_t_8h_aad7e8d4cb4eca64d0a9635da4b44604daf56b28ab2ec8f6a784921ae0cb9632a2}{en\+Total\+Pit}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_p_i_t_8c_a0c8d4e9f227809ae3d56f40af905e376}\label{_p_i_t_8c_a0c8d4e9f227809ae3d56f40af905e376}} 
+\index{PIT.c@{PIT.c}!PIT\_IRQ@{PIT\_IRQ}}
+\index{PIT\_IRQ@{PIT\_IRQ}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{PIT\_IRQ()}{PIT\_IRQ()}}
+{\footnotesize\ttfamily void P\+I\+T\+\_\+\+I\+RQ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file P\+I\+T.\+c.
+
+\mbox{\Hypertarget{_p_i_t_8c_a18edc6957e8a52e6c31a976a5746742d}\label{_p_i_t_8c_a18edc6957e8a52e6c31a976a5746742d}} 
+\index{PIT.c@{PIT.c}!PIT\_vfnSetPit@{PIT\_vfnSetPit}}
+\index{PIT\_vfnSetPit@{PIT\_vfnSetPit}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{PIT\_vfnSetPit()}{PIT\_vfnSetPit()}}
+{\footnotesize\ttfamily void P\+I\+T\+\_\+vfn\+Set\+Pit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Channel,  }\item[{\mbox{\hyperlink{_p_i_t_8h_a05f6b0ae8f6a6e135b0e290c25fe0e4e}{uint16}}}]{u16\+Period\+\_\+ms,  }\item[{\mbox{\hyperlink{_p_i_t_8h_abb452686968e48b67397da5f97445f5b}{bool}}}]{b\+Interruption }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file P\+I\+T.\+c.
+
+\mbox{\Hypertarget{_p_i_t_8c_af90d3bb89a431c82317950ad89bb2efe}\label{_p_i_t_8c_af90d3bb89a431c82317950ad89bb2efe}} 
+\index{PIT.c@{PIT.c}!Pit\_vfnSetTime@{Pit\_vfnSetTime}}
+\index{Pit\_vfnSetTime@{Pit\_vfnSetTime}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{Pit\_vfnSetTime()}{Pit\_vfnSetTime()}}
+{\footnotesize\ttfamily void Pit\+\_\+vfn\+Set\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8channel,  }\item[{\mbox{\hyperlink{_p_i_t_8h_a05f6b0ae8f6a6e135b0e290c25fe0e4e}{uint16}}}]{Time\+\_\+in\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file P\+I\+T.\+c.
+
+\mbox{\Hypertarget{_p_i_t_8c_a1ad137955c9a9a57f30839a2668f46e9}\label{_p_i_t_8c_a1ad137955c9a9a57f30839a2668f46e9}} 
+\index{PIT.c@{PIT.c}!PIT\_vfnStartPit@{PIT\_vfnStartPit}}
+\index{PIT\_vfnStartPit@{PIT\_vfnStartPit}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{PIT\_vfnStartPit()}{PIT\_vfnStartPit()}}
+{\footnotesize\ttfamily void P\+I\+T\+\_\+vfn\+Start\+Pit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Channel,  }\item[{\mbox{\hyperlink{_p_i_t_8h_abb452686968e48b67397da5f97445f5b}{bool}}}]{b\+Set }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em u8\+Channel} & Indicated the channel to use for the P\+IT\textquotesingle{}s clock \\
+\hline
+{\em b\+Set} & Start/\+Stop the P\+IT counter. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file P\+I\+T.\+c.
+
+\mbox{\Hypertarget{_p_i_t_8c_a0ec7c39403580e418f4b1090ed286ace}\label{_p_i_t_8c_a0ec7c39403580e418f4b1090ed286ace}} 
+\index{PIT.c@{PIT.c}!PIT\_vfnTimerDisable@{PIT\_vfnTimerDisable}}
+\index{PIT\_vfnTimerDisable@{PIT\_vfnTimerDisable}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{PIT\_vfnTimerDisable()}{PIT\_vfnTimerDisable()}}
+{\footnotesize\ttfamily void P\+I\+T\+\_\+vfn\+Timer\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Channel }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file P\+I\+T.\+c.
+
+\mbox{\Hypertarget{_p_i_t_8c_a013421bc722cc969eff22ef9aeaf2604}\label{_p_i_t_8c_a013421bc722cc969eff22ef9aeaf2604}} 
+\index{PIT.c@{PIT.c}!PIT\_vfnTimerEnable@{PIT\_vfnTimerEnable}}
+\index{PIT\_vfnTimerEnable@{PIT\_vfnTimerEnable}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{PIT\_vfnTimerEnable()}{PIT\_vfnTimerEnable()}}
+{\footnotesize\ttfamily void P\+I\+T\+\_\+vfn\+Timer\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_p_i_t_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Channel }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file P\+I\+T.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_p_i_t_8c_a34c7e3d1ed249e80a575010a3c536d25}\label{_p_i_t_8c_a34c7e3d1ed249e80a575010a3c536d25}} 
+\index{PIT.c@{PIT.c}!stPitConfiguration@{stPitConfiguration}}
+\index{stPitConfiguration@{stPitConfiguration}!PIT.c@{PIT.c}}
+\subsubsection{\texorpdfstring{stPitConfiguration}{stPitConfiguration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtst_init_pit}{tst\+Init\+Pit}} st\+Pit\+Configuration\mbox{[}\mbox{\hyperlink{_p_i_t_8h_aad7e8d4cb4eca64d0a9635da4b44604daf56b28ab2ec8f6a784921ae0cb9632a2}{en\+Total\+Pit}}\mbox{]}}
+
+
+
+Definition at line 5 of file P\+I\+T.\+c.
+
