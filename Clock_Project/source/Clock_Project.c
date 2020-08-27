@@ -35,19 +35,67 @@
 
 /* TODO: insert other include files here. */
 #include "Prototype.h"
+#include "assert.h"
 
-#include "I2CDrive.h"
+#include "Time.h"
 #include "Watch.h"
+#include "Watch_def.h"
+#include "I2CDrive.h"
+#include "Pit.h"
 /* TODO: insert other definitions and declarations here. */
 
 /*
  * @brief   Application entry point.
  */
-int main(void) {
-	I2C_vDriverInit();
-	Clock_vInit();
 
-    while(1) {
+
+typedef enum
+{
+	Idle = 0,
+	SendingData = 1,
+	ImgCalculation,
+	TotalStates
+}enMachineStates;
+
+static uint8 u8MachineStatus = (uint8)ImgCalculation;
+static uint8 u8Digits2Disp = 0;
+static uint32* pu32Time;
+
+void Main_vSetFlags(void)
+{
+	assert(u8MachineStatus == (uint8)Idle);
+	u8MachineStatus = (uint8)SendingData;
+	*pu32Time = *pu32Time+1;
+}
+
+
+int main(void) {
+//	uint8 u8Sec = 0;
+
+	I2C_vDriverInit();
+
+	Clock_vInit();
+	pu32Time = (uint32*)Time_pu8GetRealTime();
+
+	PIT_vfnSetPit(0, 1000, 1, Main_vSetFlags);
+	PIT_vfnStartPit(0,1);
+
+    while(1)
+    {
+    	if(u8MachineStatus == (uint8)SendingData)
+    	{
+    		Clock_vDispPags(0,u8Digits2Disp);
+    		u8MachineStatus = (uint8)ImgCalculation;
+    	}
+    	else if(u8MachineStatus == (uint8)ImgCalculation)
+    	{
+//    		Clock_vToggleSec(u8Sec);
+//    		u8Sec ^= (uint8)True;
+
+    		u8Digits2Disp = Time_u8Monitor();
+    		u8MachineStatus = (uint8)Idle;
+    	}
+
     }
     return 0 ;
 }

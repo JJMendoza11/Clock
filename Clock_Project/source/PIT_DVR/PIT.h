@@ -8,12 +8,9 @@
 #ifndef PIT_H_
 #define PIT_H_
 
+#include "Prototype.h"
+
 #define PIT_IRQ   PIT_DriverIRQHandler
-
-typedef unsigned char uint8;
-typedef unsigned short uint16;
-
-#define bool _Bool
 
 	typedef enum{
 		enPit0 = 0,
@@ -22,14 +19,13 @@ typedef unsigned short uint16;
 	}tenPits;
 
 	typedef struct{
-		void (*u8Period_ms)(uint8, uint16);
-		bool bInterup;
-		void  (*bEnablePit)(uint8);
-		bool bPitState;
+		uint8 u8Interup;
+		uint8 u8PitState;
+		void (*pfnInterruption)();
 	}tstInitPit;
 
-	void PIT_vfnSetPit(uint8 u8Channel, uint16 u16Period_ms, bool bInterruption);
-	void PIT_vfnStartPit(uint8 u8Channel, bool bSet);
+	void PIT_vfnSetPit( uint8 u8Channel, uint16 u16Period_ms, uint8 u8Interruption, void(*ptrfn)(void));
+	void PIT_vfnStartPit(uint8 u8Channel, uint8 u8Set);
 	void PIT_IRQ(void);
 
 

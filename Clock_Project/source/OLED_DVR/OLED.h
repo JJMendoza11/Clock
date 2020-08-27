@@ -10,6 +10,8 @@
 
 #include "Prototype.h"
 
+#define OLED_PAG_LENGTH			(8U)
+
 typedef enum
 {
 	OLED_enPage1 = 0,

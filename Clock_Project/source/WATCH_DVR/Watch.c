@@ -12,8 +12,23 @@
 #include "Prototype.h"
 
 #include "Watch.h"
+#include "Watch_def.h"
 #include "MKL25Z4.h"
 #include "OLED.h"
+
+
+#define ASCIIZero							(48U)
+#define xyTimeLoc(str,Loc)					Clock_astTimeProps[str].au8xLoc[Loc],  Clock_astTimeProps[str].u8yLoc
+#define ColonProps(str)						xyTimeLoc(0,Clock_enColon), (char*)&str, 2
+#define UnitsASCII(x)						(x % 10 + ASCIIZero)
+#define DecASCII(x)							(x / 10 + ASCIIZero)
+
+typedef struct
+{
+	uint8 au8xLoc[10];
+	uint8 u8yLoc;
+	uint8 u8Size;
+}Clock_stStrProps;
 
 
 /**
@@ -64,13 +79,15 @@ void Clock_vSetFullTime(void);
  */
 static Watch_stStrData Clock_stDate = {"00:00","01.Jan.00",1};
 
+//Todo make a macro to save the props of the strings wich are displayed on the screen.
+static const Clock_stStrProps Clock_astTimeProps[2] = {{{35, 47, 59, 71, 83, 0, 0, 0, 0, 0},15,2},
+										  {{0, 6, 12, 18, 24, 30, 36, 42, 48, 0},0,1}};
+
 //Public Functions
 void Clock_vInit(void)
 {
 	OLED_vInit();
 	SSD1306_ClearDisplay();
-
-//	Todo Create a getfun for the date and time.
 
 
 	Clock_vDisplayMenu();
@@ -80,10 +97,108 @@ void Clock_vInit(void)
 	SSD1306_FullDisplay();
 }
 
+void Clock_vSetTime(uint8 u8cLoc)
+{
+	SSD1306_DrawText(xyTimeLoc(0, u8cLoc), (char*)&Clock_stDate.sTime[u8cLoc], 2);
+}
+
+
+void Clock_vDispPags(uint8 u8TimeId, uint8 u8Index)
+{
+	uint8 u8Pag1;
+	uint8 u8Pag2;
+	uint8 u8FrstPx;
+	uint8 u8SecPx;
+	uint8 u8Len;
+	uint8 u8Aux;
+
+	if(u8TimeId == 0)
+	{
+		u8Len = (uint8)Clock_enTimeDigit;
+	}
+	else
+	{
+		u8Len = 1;		//Todo, change this condition.
+	}
+
+	u8Pag1 = (uint8)(Clock_astTimeProps[u8TimeId].u8yLoc / (uint8)OLED_PAG_LENGTH);
+	u8Pag2 = u8Pag1 + Clock_astTimeProps[u8TimeId].u8Size;
+	u8Aux = 6 * Clock_astTimeProps[u8TimeId].u8Size;
+
+	for(; u8Index < u8Len; u8Index++)
+	{
+		u8FrstPx = Clock_astTimeProps[u8TimeId].au8xLoc[u8Index];
+		u8SecPx = u8Aux - 1 + u8FrstPx;
+
+		SSD1306_ShrtDisplay(u8Pag1, u8Pag2, u8FrstPx, u8SecPx);
+	}
+}
+
+uint8* Clock_pu8GetTimePointer(void)
+{
+	return (uint8*)&Clock_stDate;
+}
+
+void Clock_vToggleSec(uint8 u8Toggle)
+{
+	uint8 s[2] = "";
+
+	if(u8Toggle == (uint8)True)
+	{
+		s[0] = ' ';
+	}
+	else
+	{
+		s[0] = ':';
+	}
+
+	SSD1306_DrawText(ColonProps(s));
+}
+
+uint8 Clock_u8WriteDate(uint8 u8Id, uint8 u8Num, uint8* pu8Len)
+{
+	uint8 u8RetVal = (uint8)N_OK;
+	uint8 u8Aux = ((uint8)LastDigitLoc+u8Id)-(u8Id*5)+u8Id;
+
+	if(u8Num == 0)
+	{
+		Clock_stDate.sTime[u8Aux] = '0';
+		u8Aux--;
+		Clock_stDate.sTime[u8Aux] = '0';
+		u8RetVal = (uint8)OK;
+		if(u8Id == 0)
+		{
+			*pu8Len = *pu8Len + 3;
+		}
+		else
+		{
+			*pu8Len = *pu8Len + 2;
+		}
+	}
+	else
+	{
+		Clock_stDate.sTime[u8Aux] = UnitsASCII(u8Num);
+
+		if(Clock_stDate.sTime[u8Aux] == '0')
+		{
+			u8Aux--;
+			Clock_stDate.sTime[u8Aux] = DecASCII(u8Num);
+
+			*pu8Len = *pu8Len + 2;
+		}
+		else
+		{
+			*pu8Len = *pu8Len + 1;
+		}
+	}
+
+	Clock_vSetTime(u8Aux);
+	return u8RetVal;
+}
 //Private Functions
 void Clock_vDisplayMenu(void)
 {
-	SSD1306_DrawRect( 56, 0, 72, 11);
+	SSD1306_DrawRect(56, 0, 72, 11);
 	SSD1306_DrawFastHLine(0,12,128, 1);
 }
 
@@ -131,7 +246,3 @@ void Clock_vSetDay(void)
 	break;
 	}
 }
-
-
-
-

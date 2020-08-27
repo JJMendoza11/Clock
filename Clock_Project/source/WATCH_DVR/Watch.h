@@ -12,34 +12,6 @@
 #define WATCH_DVR_WATCH_H_
 
 /**
- * @struct Watch_stStrData
- * @brief Contain all the information necessary to be displayed on the clock screen
- */
-typedef struct
-{
-	uint8 sTime[6];					/**< Time Contain the time in hr:sec. This var is a string */
-	uint8 sDate[10];				/**< Contain the actual date with the format: "DD.MMM.YY". This var is a string */
-	uint8 u8WeekDay;				/**< Contain the actual day from [0,6]. Where 0 = Sunday and 6 = Saturday. */
-}Watch_stStrData;
-
-
-/**
- * @enum Clock_enWeekDays
- * @brief Contain the day of the week starting by Sunday.
- */
-typedef enum
-{
-	Clock_enSunday = 0,				/**< Equal to 0.					*/
-	Clock_enMonday,					/**< Equal to 1.					*/
-	Clock_enTuesday,				/**< Equal to 2.					*/
-	Clock_enWednesday,				/**< Equal to 3.					*/
-	Clock_enThursday,				/**< Equal to 4.					*/
-	Clock_enFriday,					/**< Equal to 5.					*/
-	Clock_enSaturday,				/**< Equal to 6.					*/
-	Clock_enTotalDay				/**< Equal to 7 (Days of the week).	*/
-}Clock_enWeekDays;
-
-/**
  *@fn void Clock_vInit(void)
  *@pre The component "COMPNAME" has to be initialized.
  *@brief Init the menu of the clock when it called for the first time. Create the "GUI"
@@ -49,6 +21,37 @@ typedef enum
  */
 void Clock_vInit(void);
 
+/**
+ * @fn Clock_vSetTime(uint8 u8cLoc)
+ * @brief the function receives the location of the char that needs to be change on the screen
+ * this in order to avoid the refresh of all the string an loosing time calculating every char and
+ * sending all the info. Display the time only, no the date just time.
+ * @param u8cLoc location of the char in the time sting must be under the range of Clock_enTimeIndex enum.
+ * @return void.
+ */
+void Clock_vSetTime(uint8 u8cLoc);
+
+void Clock_vToggleSec(uint8 u8Toggle);
+
+uint8 Clock_u8WriteDate(uint8 u8Id, uint8 u8Num, uint8* pu8Len);
+
+
+/**
+ * @fn uint8* Clock_pu8GetTimePointer(void)
+ * @brief Get the direction of the strign to write the char.
+ * @return Return the direction of the Time and Date string
+ */
+uint8* Clock_pu8GetTimePointer(void);
+
+/**
+ * @fn  Clock_vDispPags(uint8 u8TimeId, uint8 u8Len, uint8 u8Index)
+ * @brief Indicate what numbers will change on the display must be a value in
+ *  the TimeIndex enum or from the DateIndex enum.
+ *  @param u8Index have to be and decreasing var to change the time.
+ * u8Index = {Clock_enTimeIndex} or {Clock_enDateIndex}
+ *  @param u8TimeId This var can go from [0,2) where 0 = Time and 1 = Date.
+ */
+void Clock_vDispPags(uint8 u8TimeId, uint8 u8Index);
 
 
 #endif /* WATCH_DVR_WATCH_H_ */

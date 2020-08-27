@@ -9,7 +9,7 @@
 
 #define OLED_WRITE_INS			(0x00)
 #define OLED_WRITE_DATA			(0x40)
-#define OLED_DATA_LENGHT		(30U)
+#define OLED_DATA_LENGHT		(36U)
 #define OLED_BUS_LENGHT(x)		(x+2)
 #define OLED_Pixel_Num(x)		(x-1)
 #define OLED_SCREEN_BUFFER		(SSD1306_LCDWIDTH*SSD1306_LCDHEIGHT/8)
