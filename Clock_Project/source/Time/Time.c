@@ -14,12 +14,22 @@
 
 static uint32 u32CntReg = 1;
 static uint8 au8Time[3];
+
+/*Tiene que ser esta variable tipo global? */
 static uint8 u8Digit2Displ = 0;
+
+/*Todo realizar APIS para poder configurar el reloj de una forma más facil y poder determinar si ver sec y min o min y hrs
+ * Desacoplar la funcion de monitor, que no tenga tata dependencia con Clock_u8WriteDate. u8Write SOLO tiene que pasar el numero a
+ * char y mandarlo a imprimir en la pantalla virtual. Se tiene que generar más independecia entre estas dos funciones
+ * es decir, quitar el apuntador (si se puede) y la operacion para escribir en u8WriteDate tiene que mejorar.
+ */
 
 //El retorno puede regresar un valor del 0 al 2. Donde 0 significa que Es necesario decodifcar el siguiente numero.
 //1 Significa que solo se cambio un digito y 2 significa que se cambio 2 digitos pero no hace falta ver el siguiente.
 /*
 */
+
+/* Se usaran o no...? */
 uint8 _u8GetSeconds(void)
 {
     uint8 u8RetVal;
@@ -49,6 +59,10 @@ uint8 _u8GetHrs(void)
 
     return u8RetVal;
 }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
 
 uint8 _u8GetTime(uint8 u8Id, uint32 u32Modul, uint32 u32Div)
 {

@@ -165,7 +165,7 @@ uint8 Clock_u8WriteDate(uint8 u8Id, uint8 u8Num, uint8* pu8Len)
 		Clock_stDate.sTime[u8Aux] = '0';
 		u8Aux--;
 		Clock_stDate.sTime[u8Aux] = '0';
-		u8RetVal = (uint8)OK;
+
 		if(u8Id == 0)
 		{
 			*pu8Len = *pu8Len + 3;
@@ -174,6 +174,9 @@ uint8 Clock_u8WriteDate(uint8 u8Id, uint8 u8Num, uint8* pu8Len)
 		{
 			*pu8Len = *pu8Len + 2;
 		}
+
+		u8RetVal = (uint8)OK;
+
 	}
 	else
 	{
@@ -193,6 +196,7 @@ uint8 Clock_u8WriteDate(uint8 u8Id, uint8 u8Num, uint8* pu8Len)
 	}
 
 	Clock_vSetTime(u8Aux);
+
 	return u8RetVal;
 }
 //Private Functions
