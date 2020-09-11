@@ -10,6 +10,14 @@
 
 #include "Prototype.h"
 
+typedef enum
+{
+	Time_enSecId = 0,
+	Time_enMinId,
+	Time_enHrId,
+	Time_enTotalReqId
+}Time_enAvailableIds;
+
 uint8 Time_u8Monitor(void);
 uint32* Time_pu8GetRealTime(void);
 

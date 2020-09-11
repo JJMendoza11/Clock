@@ -5,19 +5,8 @@
  *      Author: lucky
  */
 
-#ifndef WATCH_DVR_WATCH_DEF_H_
-#define WATCH_DVR_WATCH_DEF_H_
-
-/**
- * @struct Watch_stStrData
- * @brief Contain all the information necessary to be displayed on the clock screen
- */
-typedef struct
-{
-	uint8 sTime[6];					/**< Time Contain the time in hr:sec. This var is a string */
-	uint8 sDate[10];				/**< Contain the actual date with the format: "DD.MMM.YY". This var is a string */
-	uint8 u8WeekDay;				/**< Contain the actual day from [0,6]. Where 0 = Sunday and 6 = Saturday. */
-}Watch_stStrData;
+#ifndef OLEDAPI_OLEDAPI_DEF_H_
+#define OLEDAPI_OLEDAPI_DEF_H_
 
 
 /**
@@ -53,4 +42,4 @@ typedef enum
 #define TwoDigitUnit						(2U)
 #define LastDigitLoc						(4U)
 
-#endif /* WATCH_DVR_WATCH_DEF_H_ */
+#endif /* OLEDAPI_OLEDAPI_DEF_H_ */
