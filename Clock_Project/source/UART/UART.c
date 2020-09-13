@@ -29,68 +29,75 @@
  */
  
 /**
- * @file    Clock_Project.c
+ * @file    UART.c
  * @brief   Application entry point.
  */
-
-/* TODO: insert other include files here. */
 #include "Prototype.h"
-#include "assert.h"
+/* TODO: insert other include files here. */
+#include "MKL25Z4.h"
+#include "UART_cfg.h"
+#include "UART_def.h"
+#include "UART.h"
 
-#include "Time.h"
-#include "OLEDAPI_def.h"
-#include "OLEDAPI.h"
-#include "I2CDrive.h"
-#include "Pit.h"
+#include "Comm.h"
+
 /* TODO: insert other definitions and declarations here. */
+#define UART_Baudrate     9600
+#define UART0_IRQ     UART0_IRQHandler
+
 
 /*
  * @brief   Application entry point.
  */
 
-
-typedef enum
+void UART_vInit(void)
 {
-	Idle = 0,
-	SendingData,
-	ImgCalculation,
-	ErrorState,
-	TotalStates
-}enMachineStates;
+	uint32 SBR;
+	SBR=21000000/((16)*UART_Baudrate);               // {9600=21Mhz/((OSR+1)SBR)}  {SBR=21Mhz/((OSR+1)9600}
+	SIM->SOPT2|=SIM_SOPT2_UART0SRC(1);
+	SIM->SCGC4|=SIM_SCGC4_UART0_MASK;
+	UART0->BDH|=UART_BDH_SBNS_MASK;         //Stop Bit Number Select
+	UART0->BDH|=(SBR>>8 & 0X1F);            //Baud Rate Modulo Divisor (Se ingresa el bit 12,11,10,9,8)
+	UART0->BDL=(SBR&0xFF);                  //Baud Rate Modulo Divisor(Se ingresan el bit 7,6,5,4,3,2,1,0)
+	UART0->C1=0;
 
-static uint8 u8MachineStatus = (uint8)ImgCalculation;
-static uint32* pu32Time;
+	UART0->C2|=UART_C2_RIE_MASK;
+	NVIC->ISER[0]|=(1<<UART0_IRQn);
+	UART0->C4|=UART0_C4_OSR(15);
 
-void Main_vSetFlags(void)
-{
-	assert(u8MachineStatus == (uint8)Idle);
-	u8MachineStatus = (uint8)SendingData;
-	*pu32Time = *pu32Time+1;
+	SIM->SCGC5|=SIM_SCGC5_PORTA_MASK;
+	PORTA->PCR[1]=PORT_PCR_MUX(2); //RX
+	PORTA->PCR[2]=PORT_PCR_MUX(2); //TX
+
+	UART0->C2|=UART_C2_TE_MASK;
+	UART0->C2|=UART_C2_RE_MASK;
+
 }
 
+uint8 UART_u8SendData(char* pu8Data, uint8 u8Size)
+{
+	uint8 u8i;
+	for(u8i = 0; u8i<u8Size; u8i++)
+	{
+		while((UART0->S1&UART_S1_TC_MASK) == 0);
+		UART0->D = pu8Data[u8i];
+	}
+	return 1;
+}
 
-int main(void) {
-//	uint8 u8Sec = 0;
+void UART0_IRQ(void)
+{
+	uint8* pu8RecieveData;
+	pu8RecieveData = Comm_u8GetPointer();
+	*pu8RecieveData = UART0->D;
+	Comm_vSetReadFlag();
+}
 
-	I2C_vDriverInit();
-
-	pu32Time = Time_pu8GetRealTime();
-
-	OLEDAPI_vDispMenu();
-	PIT_vfnSetPit(0, 1000, 1, Main_vSetFlags);
-	PIT_vfnStartPit(0,1);
-
-    while(1)
-    {
-    	if(u8MachineStatus == (uint8)SendingData)
-    	{
-    		u8MachineStatus = (uint8)ImgCalculation;
-    	}
-    	else if(u8MachineStatus == (uint8)ImgCalculation)
-    	{
-    		u8MachineStatus = (uint8)Idle;
-    	}
-
-    }
-    return 0 ;
+void UART_DisableRx(void)
+{
+	UART0->C2 &= ~(UART_C2_RE_MASK);
+}
+void UART_EnableRx(void)
+{
+	UART0->C2 |= UART_C2_RE_MASK;
 }

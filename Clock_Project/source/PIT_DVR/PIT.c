@@ -38,9 +38,6 @@ void PIT_vfnTimerEnable(uint8 u8Channel){
 }
 void PIT_vfnTimerDisable(uint8 u8Channel){
 	PIT->CHANNEL[u8Channel].TCTRL&=~(PIT_TCTRL_TEN_MASK);
-
-
-
 }
 
 void Pit_vfnSetTime(uint8 u8channel, uint16 Time_in_ms)
