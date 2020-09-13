@@ -38,8 +38,8 @@
 #include "assert.h"
 
 #include "Time.h"
-#include "Watch.h"
-#include "Watch_def.h"
+#include "OLEDAPI_def.h"
+#include "OLEDAPI.h"
 #include "I2CDrive.h"
 #include "Pit.h"
 /* TODO: insert other definitions and declarations here. */
@@ -58,7 +58,6 @@ typedef enum
 }enMachineStates;
 
 static uint8 u8MachineStatus = (uint8)ImgCalculation;
-static uint8 u8Digits2Disp = 0;
 static uint32* pu32Time;
 
 void Main_vSetFlags(void)
@@ -74,9 +73,9 @@ int main(void) {
 
 	I2C_vDriverInit();
 
-	Clock_vInit();
-	pu32Time = (uint32*)Time_pu8GetRealTime();
+	pu32Time = Time_pu8GetRealTime();
 
+	OLEDAPI_vDispMenu();
 	PIT_vfnSetPit(0, 1000, 1, Main_vSetFlags);
 	PIT_vfnStartPit(0,1);
 
@@ -84,15 +83,10 @@ int main(void) {
     {
     	if(u8MachineStatus == (uint8)SendingData)
     	{
-    		Clock_vDispPags(0,u8Digits2Disp);
     		u8MachineStatus = (uint8)ImgCalculation;
     	}
     	else if(u8MachineStatus == (uint8)ImgCalculation)
     	{
-//    		Clock_vToggleSec(u8Sec);
-//    		u8Sec ^= (uint8)True;
-
-    		u8Digits2Disp = Time_u8Monitor();
     		u8MachineStatus = (uint8)Idle;
     	}
 

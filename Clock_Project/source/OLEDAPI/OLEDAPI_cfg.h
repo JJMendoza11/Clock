@@ -5,12 +5,12 @@
  *      Author: lucky
  */
 
-#ifndef WATCH_DVR_WATCH_CFG_H_
-#define WATCH_DVR_WATCH_CFG_H_
+#ifndef OLEDAPI_OLEDAPI_CFG_H_
+#define OLEDAPI_OLEDAPI_CFG_H_
 
 #define WATCH_MENU_POSITION \
 {{35, 15, 2, 0},{47,15,2,1},{59,15,2,2},{71,15,2,3},{83,15,2,4}}
 
 
 
-#endif /* WATCH_DVR_WATCH_CFG_H_ */
+#endif /* OLEDAPI_OLEDAPI_CFG_H_ */
