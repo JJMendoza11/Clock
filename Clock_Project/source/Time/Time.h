@@ -18,7 +18,12 @@ typedef enum
 	Time_enTotalReqId
 }Time_enAvailableIds;
 
-uint8 Time_u8Monitor(void);
+uint8 Time_u8GetSeconds(void);
+uint8 Time_u8GetMin(void);
+uint8 TIME_u8GetHrs(void);
+uint8 Time_u8GetReqTime(uint8 u8RequestId);
 uint32* Time_pu8GetRealTime(void);
+
+uint32 Time_u32GetRawTime(void);
 
 #endif /* TIME_TIME_H_ */

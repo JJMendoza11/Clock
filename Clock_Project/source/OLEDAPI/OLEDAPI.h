@@ -23,4 +23,6 @@ void OLEDAPI_vDispTime(uint8 u8TimeId, uint8 u8Index);
 
 void OLEDAPI_vSetWeekDay(uint8 u8WeekDay);
 
+void OLEDAPI_vToggleSec(uint8 u8Tiks);
+
 #endif /* OLEDAPI_OLEDAPI_H_ */

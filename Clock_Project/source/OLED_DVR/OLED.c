@@ -199,9 +199,9 @@ void OLED_vClearScreen(void)
 
 void OLED_vDrawRectangle(uint16 x, uint16 y, uint8 b, uint8 a)
 {
-//	OLED_vDrawHLine(x, y, b, (uint8)True);
-//	OLED_vDrawVLine(x, y, a, (uint8)True);
-//	OLED_vDrawHLine(x, y + a - 1, b, (uint8)True);
+	OLED_vDrawHLine(x, y, x + b, (uint8)True);
+	OLED_vDrawVLine(x, y, a, (uint8)True);
+	OLED_vDrawHLine(x, y + a - 1, x + b, (uint8)True);
 	OLED_vDrawVLine(x + b - 1, y, a, (uint8)True);
 }
 

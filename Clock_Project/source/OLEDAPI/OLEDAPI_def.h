@@ -15,24 +15,24 @@
  */
 typedef enum
 {
-	Clock_enSunday = 0,				/**< Equal to 0.					*/
-	Clock_enMonday,					/**< Equal to 1.					*/
-	Clock_enTuesday,				/**< Equal to 2.					*/
-	Clock_enWednesday,				/**< Equal to 3.					*/
-	Clock_enThursday,				/**< Equal to 4.					*/
-	Clock_enFriday,					/**< Equal to 5.					*/
-	Clock_enSaturday,				/**< Equal to 6.					*/
-	Clock_enTotalDay				/**< Equal to 7 (Days of the week).	*/
+	OLEDAPI_enSunday = 0,				/**< Equal to 0.					*/
+	OLEDAPI_enMonday,					/**< Equal to 1.					*/
+	OLEDAPI_enTuesday,					/**< Equal to 2.					*/
+	OLEDAPI_enWednesday,				/**< Equal to 3.					*/
+	OLEDAPI_enThursday,					/**< Equal to 4.					*/
+	OLEDAPI_enFriday,					/**< Equal to 5.					*/
+	OLEDAPI_enSaturday,					/**< Equal to 6.					*/
+	OLEDAPI_enTotalDay					/**< Equal to 7 (Days of the week).	*/
 }Clock_enWeekDays;
 
 typedef enum
 {
-	Clock_enFullHr = 0,
-	Clock_enHr,
-	Clock_enColon,
-	Clock_enFullMin,
-	Clock_enMin,
-	Clock_enTimeDigit
+	OLEDAPI_enFullHr = 0,
+	OLEDAPI_enHr,
+	OLEDAPI_enColon,
+	OLEDAPI_enFullMin,
+	OLEDAPI_enMin,
+	OLEDAPI_enTimeDigit
 }Clock_enTimeIndex;
 
 #define Nd4Digits			(0U)

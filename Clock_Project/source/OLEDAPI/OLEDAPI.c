@@ -65,7 +65,7 @@ static Watch_stStrData Clock_stWords[OLEDAPI_enTotalStrings] = {	{{"00:00"},{{35
 																	{{"M Tu W Th F"}, {{60, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,11}},	\
 																	{{"Sunday"}, {{75, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,6}},			\
 																	{{"Saturday"}, {{68, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,8}} };
-static uint8 Clock_u8WeekDay = Clock_enMonday;
+static uint8 Clock_u8WeekDay = OLEDAPI_enMonday;
 
 void _vBasicMenu(void)
 {
@@ -77,29 +77,29 @@ void _vSetDay(void)
 {
 	switch (Clock_u8WeekDay)
 	{
-	case (uint8)Clock_enSunday:
+	case (uint8)OLEDAPI_enSunday:
 		OLED_vFillRect(57,1,70,9,0);
 		//SSD1306_DrawText(75, 2, "Sunday", 1);
 		OLEDAPI_vPrint(3,0,Clock_stWords[3].stStrProp.u8Len);
 		break;
-	case (uint8)Clock_enMonday:
+	case (uint8)OLEDAPI_enMonday:
 		//SSD1306_DrawText(60, 2, "M Tu W Th F", 1);
 		OLEDAPI_vPrint(2,0,Clock_stWords[2].stStrProp.u8Len);
 		OLED_vInverse (57, 1, 69, 9);				//Monday
 	break;
-	case (uint8)Clock_enTuesday:
+	case (uint8)OLEDAPI_enTuesday:
 		OLED_vInverse (57, 1, 69, 9);
 		OLED_vInverse (69, 1, 84, 9);				//Tuesday
 	break;
-	case (uint8)Clock_enWednesday:
+	case (uint8)OLEDAPI_enWednesday:
 		OLED_vInverse (69, 1, 84, 9);
 		OLED_vInverse (84, 1, 100, 9);				//Wednesday
 	break;
-	case (uint8)Clock_enThursday:
+	case (uint8)OLEDAPI_enThursday:
 		OLED_vInverse (88, 1, 100, 9);
 		OLED_vInverse (100, 1, 114, 9);				//Thursday
 	break;
-	case (uint8)Clock_enFriday:
+	case (uint8)OLEDAPI_enFriday:
 		OLED_vInverse (100, 1, 114, 9);
 		OLED_vInverse (114, 1, 126, 9);				//Friday
 	break;
@@ -125,10 +125,10 @@ void OLEDAPI_vDispMenu(void)
 	OLED_vInit();
 	OLED_vClearScreen();
 
-//	_vSetDay();
-//
-//	OLEDAPI_vPrint(0,0,5);
-//	OLEDAPI_vPrint(1,0,9);
+	_vSetDay();
+
+	OLEDAPI_vPrint(0,0,5);
+	OLEDAPI_vPrint(1,0,9);
 
 	_vBasicMenu();
 
@@ -142,19 +142,19 @@ uint8 OLEDAPI_vSetTime(uint8 u8Time, uint8 u8Value)
 
 	if(u8Value == 0)
 	{
-		Clock_stWords[0].au8Word[u8Loc] = '0';
+		Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = '0';
 		u8Loc--;
-		Clock_stWords[0].au8Word[u8Loc] = '0';
+		Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = '0';
 		u8Len = 2;
 	}
 	else
 	{
-		Clock_stWords[0].au8Word[u8Loc] = UnitsASCII(u8Value);
+		Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = UnitsASCII(u8Value);
 
-		if(Clock_stWords[0].au8Word[u8Loc] == '0')
+		if(Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] == '0')
 		{
 			u8Loc--;
-			Clock_stWords[0].au8Word[u8Loc] = DecASCII(u8Value);
+			Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = DecASCII(u8Value);
 			u8Len = 2;
 		}
 		else
@@ -163,7 +163,7 @@ uint8 OLEDAPI_vSetTime(uint8 u8Time, uint8 u8Value)
 		}
 	}
 
-	OLEDAPI_vPrint(0,u8Loc,u8Len);
+	OLEDAPI_vPrint((uint8)OLEDAPI_enTimeString,u8Loc,u8Len);
 
 	return u8Len;
 }
@@ -190,4 +190,18 @@ void OLEDAPI_vSetWeekDay(uint8 u8WeekDay)
 {
 	Clock_u8WeekDay = u8WeekDay;
 	_vSetDay();
+}
+
+void OLEDAPI_vToggleSec(uint8 u8Tiks)
+{
+	if(u8Tiks == (uint8)True)
+	{
+		Clock_stWords[OLEDAPI_enTimeString].au8Word[OLEDAPI_enColon] = ':';
+	}
+	else
+	{
+		Clock_stWords[OLEDAPI_enTimeString].au8Word[OLEDAPI_enColon] = ' ';
+	}
+
+	OLEDAPI_vPrint((uint8)OLEDAPI_enTimeString,(uint8)OLEDAPI_enColon,1);
 }

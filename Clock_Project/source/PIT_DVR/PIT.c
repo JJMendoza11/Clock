@@ -42,7 +42,7 @@ void PIT_vfnTimerDisable(uint8 u8Channel){
 
 void Pit_vfnSetTime(uint8 u8channel, uint16 Time_in_ms)
 {
-	uint32_t u32LDVal = (uint32)(10500 * Time_in_ms);
+	uint32_t u32LDVal = (uint32)10494749;
 	PIT->CHANNEL[u8channel].LDVAL = u32LDVal;
 }
 
