@@ -28,5 +28,6 @@ void Comm_vDisableComm(uint8 u8Protocol);
 void Comm_vEnableComm(uint8 u8Protocol);
 uint8 Comm_u8GetStatus(void);
 void Comm_vCleanFlag(uint8 u8ClnFlag);
+void Comm_vMonitor(void);
 
 #endif /* COMM_H_ */

@@ -81,6 +81,15 @@ uint8 UART_u8SendData(char* pu8Data, uint8 u8Size)
 	{
 		while((UART0->S1&UART_S1_TC_MASK) == 0);
 		UART0->D = pu8Data[u8i];
+		if(pu8Data[u8i] == '\n')
+		{
+			while((UART0->S1&UART_S1_TC_MASK) == 0);
+			UART0->D = '\r';
+		}
+		else
+		{
+			/*Nothing to do. */
+		}
 	}
 	return 1;
 }

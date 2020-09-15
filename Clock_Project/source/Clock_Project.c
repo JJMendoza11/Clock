@@ -37,6 +37,9 @@
 #include "Prototype.h"
 #include "assert.h"
 
+#include "Comm.h"
+#include "Comm_cfg.h"
+
 #include "Time.h"
 #include "Clock.h"
 #include "OLEDAPI_def.h"
@@ -79,17 +82,25 @@ void Main_vSetFlags(void)
 
 int main(void) {
 //	uint8 u8Sec = 0;
+	Comm_stMsgProps stMsg;
+
+	stMsg.u8Protocol = (uint8)Comm_enViaUART;
+	stMsg.s8Data = "Reloj:\n";
+	stMsg.u8BusLenght = 7;
 
 	I2C_vDriverInit();
 
 	pu32Time = Time_pu8GetRealTime();
 
+	Comm_vInit();
+	Comm_vSendData(&stMsg);
 	OLEDAPI_vDispMenu();
 	PIT_vfnSetPit(0, 1000, 1, Main_vSetFlags);
 	PIT_vfnStartPit(0,1);
 
     while(1)
     {
+    	Comm_vMonitor();
     	if(u8MachineStatus == (uint8)SendingData)
     	{
     		Clock_vDisplay();
