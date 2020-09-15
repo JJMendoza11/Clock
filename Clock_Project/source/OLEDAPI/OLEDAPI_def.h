@@ -35,6 +35,17 @@ typedef enum
 	OLEDAPI_enTimeDigit
 }Clock_enTimeIndex;
 
+typedef enum
+{
+	OLEDAPI_enTimeString = 0,
+	OLEDAPI_enDateString,
+	OLEDAPI_enCurrDay,
+	OLEDAPI_enSunString,
+	OLEDAPI_enSatString,
+	OLEDAPI_enTotalStrings
+}OLEDAPI_enStrings;
+
+
 #define Nd4Digits			(0U)
 #define OneDigit 			(1U)
 #define TwoDigit			(2U)

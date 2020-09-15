@@ -13,7 +13,7 @@
 
 #include "Time.h"
 
-#define Time_Operation(mod,div)				(u32CntReg%mod/div)
+#define Time_Operation(div, mod)				(u32CntReg%mod/div)
 #define Time_Get_Requested_Time(ReqId)		Time_Operation(au32OperatorVals[ReqId], au32OperatorVals[ReqId+1])
 
 static uint32 u32CntReg = 1;

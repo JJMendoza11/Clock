@@ -25,16 +25,6 @@
 #define UnitsASCII(x)						(x % 10 + ASCIIZero)
 #define DecASCII(x)							(x / 10 + ASCIIZero)
 
-typedef enum
-{
-	OLEDAPI_enTimeString = 0,
-	OLEDAPI_enDateString,
-	OLEDAPI_enCurrDay,
-	OLEDAPI_enSunString,
-	OLEDAPI_enSatString,
-	OLEDAPI_enTotalStrings
-}OLEDAPI_enStrings;
-
 typedef struct
 {
 	uint8 au8xLoc[12];
@@ -177,7 +167,7 @@ void OLEDAPI_vDispTime(uint8 u8TimeId, uint8 u8Index)
 	uint8 u8cWidth;
 
 	u8Pag1 = (uint8)(Clock_stWords[u8TimeId].stStrProp.u8yLoc / (uint8)8);
-	u8Pag2 = u8Pag1 + Clock_stWords[u8TimeId].stStrProp.u8Size - 1;
+	u8Pag2 = u8Pag1 + Clock_stWords[u8TimeId].stStrProp.u8Size;
 
 	u8FrstPx = Clock_stWords[u8TimeId].stStrProp.au8xLoc[u8Index];
 	u8cWidth = 6 * Clock_stWords[u8TimeId].stStrProp.u8Size ;
@@ -204,4 +194,9 @@ void OLEDAPI_vToggleSec(uint8 u8Tiks)
 	}
 
 	OLEDAPI_vPrint((uint8)OLEDAPI_enTimeString,(uint8)OLEDAPI_enColon,1);
+}
+
+void OLEDAPI_vInvDisplay(void)
+{
+	OLED_vInvDisplay();
 }

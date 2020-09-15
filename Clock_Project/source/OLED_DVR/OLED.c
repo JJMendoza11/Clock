@@ -184,6 +184,7 @@ void OLED_vPartialRefresh(uint8 u8Page1, uint8 u8Page2, uint16 u16Pxl1, uint16 u
 		u16Pxl1 = u16Aux;
 		u8Page1++;
 	}
+	stMsg.u8ControlByte = (uint8)OLED_nSEND_Data;
 	I2C_vfnSendData ((uint8*)&stMsg, (uint16)OLED_Msg_Len(u16Index));
 }
 
@@ -264,6 +265,14 @@ void OLED_vPrint(const uint8* C, uint16 u16Len)
 	{
 		_vDrawChar(C[i]);
 	}
+}
+
+void OLED_vInvDisplay(void)
+{
+	stMsg.u8ControlByte = (uint8)OLED_nSEND_INS;
+	stMsg.au8Msg[0] = SSD1306_INVERTDISPLAY;
+
+	I2C_vfnSendData ((uint8*)&stMsg, (uint16)OLED_Msg_Len(1));
 }
 
 

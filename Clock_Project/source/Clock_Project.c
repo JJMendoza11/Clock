@@ -38,6 +38,7 @@
 #include "assert.h"
 
 #include "Time.h"
+#include "Clock.h"
 #include "OLEDAPI_def.h"
 #include "OLEDAPI.h"
 #include "I2CDrive.h"
@@ -64,8 +65,15 @@ static uint32* pu32Time;
 void Main_vSetFlags(void)
 {
 	assert(u8MachineStatus == (uint8)Idle);
-	u8MachineStatus = (uint8)SendingData;
-	*pu32Time = *pu32Time+1;
+	if(u8MachineStatus != Idle)
+	{
+		u8MachineStatus = (uint8)ErrorState;
+	}
+	else
+	{
+		u8MachineStatus = (uint8)SendingData;
+		*pu32Time = *pu32Time+1;
+	}
 }
 
 
@@ -84,11 +92,22 @@ int main(void) {
     {
     	if(u8MachineStatus == (uint8)SendingData)
     	{
+    		Clock_vDisplay();
     		u8MachineStatus = (uint8)ImgCalculation;
     	}
     	else if(u8MachineStatus == (uint8)ImgCalculation)
     	{
+    		Clock_vMonitor();
     		u8MachineStatus = (uint8)Idle;
+    	}
+    	else if(u8MachineStatus == (uint8)ErrorState)
+    	{
+    		PIT_vfnStartPit(0,0);
+    		OLEDAPI_vInvDisplay();
+    	}
+    	else
+    	{
+    		/*Nothing to do. */
     	}
 
     }
