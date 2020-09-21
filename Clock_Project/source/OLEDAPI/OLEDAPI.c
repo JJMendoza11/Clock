@@ -27,7 +27,7 @@
 
 typedef struct
 {
-	uint8 au8xLoc[12];
+	uint8 au8xLoc[OLEDAPI_nString_Len];
 	uint8 u8yLoc;
 	uint8 u8Size;
 	uint8 u8Len;
@@ -39,7 +39,7 @@ typedef struct
  */
 typedef struct
 {
-	uint8 au8Word[12];
+	uint8 au8Word[OLEDAPI_nString_Len];
 	Clock_stStrProps stStrProp;
 }Watch_stStrData;
 
@@ -199,4 +199,28 @@ void OLEDAPI_vToggleSec(uint8 u8Tiks)
 void OLEDAPI_vInvDisplay(void)
 {
 	OLED_vInvDisplay();
+}
+
+uint8 OLEDAPI_u8SetString(uint8 u8StrId, uint8* pau8Msg, uint8 u8Len)
+{
+	uint8 u8RetVal = N_OK;
+	uint8 i;
+
+	if(u8Len == Clock_stWords[u8StrId].stStrProp.u8Len)
+	{
+		for(i = 0; i < u8Len; i++)
+		{
+			Clock_stWords[u8StrId].au8Word[i] = pau8Msg[i];
+		}
+
+		OLEDAPI_vPrint(u8StrId, 0, u8Len);
+
+		u8RetVal = OK;
+	}
+	else
+	{
+		/* Nothing to do. */
+	}
+
+	return u8RetVal;
 }

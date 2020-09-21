@@ -50,7 +50,14 @@ typedef enum
 #define OneDigit 			(1U)
 #define TwoDigit			(2U)
 
+#define OLEDAPI_nClock_Len		(5U)
+#define OLEDAPI_nDate_Len		(9U)
+#define OLEDAPI_nWeekday_Len	(11U)
+#define OLEDAPI_nSunday_Len		(6U)
+#define OLEDAPI_nSaturday_Len	(8U)
+#define OLEDAPI_nString_Len		(12U)
+
 #define TwoDigitUnit						(2U)
-#define LastDigitLoc						(4U)
+#define LastDigitLoc						(4U) /* Todo check this macro. */
 
 #endif /* OLEDAPI_OLEDAPI_DEF_H_ */

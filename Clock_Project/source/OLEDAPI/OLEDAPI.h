@@ -27,4 +27,6 @@ void OLEDAPI_vToggleSec(uint8 u8Tiks);
 
 void OLEDAPI_vInvDisplay(void);
 
+uint8 OLEDAPI_u8SetString(uint8 u8StrId, uint8* pau8Msg, uint8 u8Len);
+
 #endif /* OLEDAPI_OLEDAPI_H_ */

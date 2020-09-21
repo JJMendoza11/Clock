@@ -26,4 +26,6 @@ uint32* Time_pu8GetRealTime(void);
 
 uint32 Time_u32GetRawTime(void);
 
+void Time_vSetTime(uint32 u32Hrs, uint32 u32Min);
+
 #endif /* TIME_TIME_H_ */

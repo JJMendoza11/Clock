@@ -13,8 +13,10 @@
 
 #include "Time.h"
 
+#define Time_Min2Sec(min)						(min = (uint32)(min * 60))
+#define Time_Hrs2Sec(hrs)						(hrs = (uint32)(hrs * 3600))
 #define Time_Operation(div, mod)				(u32CntReg%mod/div)
-#define Time_Get_Requested_Time(ReqId)		Time_Operation(au32OperatorVals[ReqId], au32OperatorVals[ReqId+1])
+#define Time_Get_Requested_Time(ReqId)			Time_Operation(au32OperatorVals[ReqId], au32OperatorVals[ReqId+1])
 
 static uint32 u32CntReg = 1;
 static uint32 au32OperatorVals[4] = {1, 60, 3600, 86400};
@@ -60,6 +62,21 @@ uint32* Time_pu8GetRealTime(void)
 uint32 Time_u32GetRawTime(void)
 {
 	return u32CntReg;
+}
+
+void Time_vSetTime(uint32 u32Hrs, uint32 u32Min)
+{
+	uint32 u32Sec;
+
+	assert(u32Hrs < 24);
+	assert(u32Min < 60);
+
+	u32Sec = (uint32)Time_u8GetSeconds();
+	Time_Min2Sec(u32Min);
+	Time_Hrs2Sec(u32Hrs);
+
+	u32CntReg = u32Sec + u32Min + u32Hrs;
+
 }
 
 

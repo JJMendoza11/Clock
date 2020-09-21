@@ -119,12 +119,12 @@ uint8 Comm_u8GetMsg(uint8* pu8Data)
 	uint8 i;
 	uint8 u8Return = u8Index;
 
-	Comm_vCleanBuffer();
-
 	for(i = 0; i < u8Index; i++)
 	{
 		pu8Data[i] = (uint8)au8MyWord[i];
 	}
+
+	Comm_vEnableComm((uint8)Comm_enViaUART);
 
 	return u8Return;
 }
