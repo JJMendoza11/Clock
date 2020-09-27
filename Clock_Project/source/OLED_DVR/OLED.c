@@ -267,10 +267,17 @@ void OLED_vPrint(const uint8* C, uint16 u16Len)
 	}
 }
 
-void OLED_vInvDisplay(void)
+void OLED_vInvDisplay(uint8 u8Invert)
 {
 	stMsg.u8ControlByte = (uint8)OLED_nSEND_INS;
-	stMsg.au8Msg[0] = SSD1306_INVERTDISPLAY;
+	if(u8Invert == (uint8)False)
+	{
+		stMsg.au8Msg[0] = SSD1306_INVERTDISPLAY;
+	}
+	else
+	{
+		stMsg.au8Msg[0] = SSD1306_NORMALDISPLAY;
+	}
 
 	I2C_vfnSendData ((uint8*)&stMsg, (uint16)OLED_Msg_Len(1));
 }

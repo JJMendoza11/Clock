@@ -43,7 +43,7 @@ void OLED_vInverse(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
 
 void OLED_vPrint(const uint8* C, uint16 u16Len);
 
-void OLED_vInvDisplay(void);
+void OLED_vInvDisplay(uint8 u8Invert);
 
 
 #endif /* OLED_H_ */

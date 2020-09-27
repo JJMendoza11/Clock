@@ -56,6 +56,7 @@ static Watch_stStrData Clock_stWords[OLEDAPI_enTotalStrings] = {	{{"00:00"},{{35
 																	{{"Sunday"}, {{75, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,6}},			\
 																	{{"Saturday"}, {{68, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,8}} };
 static uint8 Clock_u8WeekDay = OLEDAPI_enMonday;
+static uint8 Clock_u8Invert = (uint8)False;
 
 void _vBasicMenu(void)
 {
@@ -198,7 +199,9 @@ void OLEDAPI_vToggleSec(uint8 u8Tiks)
 
 void OLEDAPI_vInvDisplay(void)
 {
-	OLED_vInvDisplay();
+	OLED_vInvDisplay(Clock_u8Invert);
+
+	Clock_u8Invert ^=(uint8)True;
 }
 
 uint8 OLEDAPI_u8SetString(uint8 u8StrId, uint8* pau8Msg, uint8 u8Len)

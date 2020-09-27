@@ -77,7 +77,7 @@ void Comm_SaveNewChar(void)
 		u8BusSize = 3;
 		u8Dir = Comm_s_DELETE_C;
 	}
-	if(u8Dir == 0 && u8Index < 5)
+	if(u8Dir == 0 && u8Index < (uint8)Comm_nBUS_LENGHT)
 	{
 		UART_u8SendData((char*)&au8MyWord[u8Index], u8BusSize);
 		u8Index++;
@@ -124,6 +124,7 @@ uint8 Comm_u8GetMsg(uint8* pu8Data)
 		pu8Data[i] = (uint8)au8MyWord[i];
 	}
 
+	Comm_vCleanFlag(Comm_s_END_COMM);
 	Comm_vEnableComm((uint8)Comm_enViaUART);
 
 	return u8Return;

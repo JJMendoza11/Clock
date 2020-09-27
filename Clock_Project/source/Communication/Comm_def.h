@@ -12,7 +12,7 @@
 
 
 #define Comm_nMIN_BUS_LENGHT												  (2U)
-#define Comm_nBUS_LENGHT								(5 + Comm_nMIN_BUS_LENGHT)
+#define Comm_nBUS_LENGHT								(24U)
 #define Comm_nNew_Msg									(2U)
 #define Comm_s_fnDISABLE									{UART_DisableRx}
 #define Comm_s_fnENABLE										{UART_EnableRx}
