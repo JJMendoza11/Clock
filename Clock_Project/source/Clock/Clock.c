@@ -87,7 +87,7 @@ uint8 _u8NewHour(uint8* pau8NewMsg, uint8 u8Len)
 	}
 	else
 	{
-		u8RetVal = (uint8)-1;
+		u8RetVal = (uint8)N_OK;
 	}
 
 	return u8RetVal;
