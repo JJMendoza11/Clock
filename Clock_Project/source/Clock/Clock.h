@@ -10,7 +10,16 @@
 
 #include "Prototype.h"
 
-void Clock_vMonitor(void);
+#include "OLEDAPI_def.h"
+
+typedef struct
+{
+	uint8 u8StringId;
+	uint8 u8Padding;
+	uint8 au8Msg[OLEDAPI_nString_Len];
+}Clock_tstRxMsg;
+
+void Clock_vMonitor(uint8 u8State);
 
 void Clock_vDisplay(void);
 

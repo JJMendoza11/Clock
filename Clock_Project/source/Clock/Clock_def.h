@@ -22,6 +22,11 @@ typedef enum
 	Clock_enTotalTimeData
 }Clock_enTimeDataId;
 
+#define String2Uni(c)					(c - 48)
+#define String2Dec(c)					((c - 48) * 10)
+#define String2Num(Msg,pos)				(String2Dec(Msg[pos]) + String2Uni(Msg[pos+1]))
+#define GetRealLen(x)					(x = x - 2)
 
+extern uint8 _u8NewHour(uint8* pau8NewMsg, uint8 u8Len);
 
 #endif /* CLOCK_CLOCK_DEF_H_ */

@@ -41,17 +41,14 @@
 #include "Comm_cfg.h"
 
 #include "Time.h"
+#include "CLKSHELL.h"
 #include "Clock.h"
 #include "OLEDAPI_def.h"
 #include "OLEDAPI.h"
 #include "I2CDrive.h"
 #include "Pit.h"
-/* TODO: insert other definitions and declarations here. */
 
-/*
- * @brief   Application entry point.
- */
-
+#define WelcomeMsg			"Reloj de Joje\n=====\n0. Nueva hora\n1. Woriking on it...\n"
 
 typedef enum
 {
@@ -85,8 +82,8 @@ int main(void) {
 	Comm_stMsgProps stMsg;
 
 	stMsg.u8Protocol = (uint8)Comm_enViaUART;
-	stMsg.s8Data = "Reloj:\n";
-	stMsg.u8BusLenght = 7;
+	stMsg.s8Data = WelcomeMsg;
+	stMsg.u8BusLenght = sizeof(WelcomeMsg);
 
 	I2C_vDriverInit();
 
@@ -108,7 +105,7 @@ int main(void) {
     	}
     	else if(u8MachineStatus == (uint8)ImgCalculation)
     	{
-    		Clock_vMonitor();
+    		vCLKSHELL();
     		u8MachineStatus = (uint8)Idle;
     	}
     	else if(u8MachineStatus == (uint8)ErrorState)
