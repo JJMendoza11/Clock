@@ -140,12 +140,12 @@ uint8 OLEDAPI_vSetTime(uint8 u8Time, uint8 u8Value)
 	}
 	else
 	{
-		Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = UnitsASCII(u8Value);
+		Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = (uint8)UnitsASCII(u8Value);
 
 		if(Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] == '0')
 		{
 			u8Loc--;
-			Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = DecASCII(u8Value);
+			Clock_stWords[OLEDAPI_enTimeString].au8Word[u8Loc] = (uint8)DecASCII(u8Value);
 			u8Len = 2;
 		}
 		else

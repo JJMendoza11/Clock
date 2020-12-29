@@ -8,6 +8,7 @@
 #include "Prototype.h"
 
 #include "Clock.h"
+#include "Clock_def.h"
 
 #include "OLEDAPI_def.h"
 #include "OLEDAPI.h"
@@ -39,7 +40,7 @@ uint8 _u8NewHour(uint8* pau8NewMsg, uint8 u8Len);
 static uint8 u8Tiks = (uint8)False;
 static uint8 u8StateMachine = Clock_enMinHrs;
 static uint8 u8Digi2Display = 0;
-static uint8 au8Time[Time_enTotalReqId] = {0};
+static uint8 au8Time[Clock_enTotalTimeData] = {0};
 static uint8 (*pfnNewTask[9])(uint8*, uint8) = {_u8NewHour, NULL};
 
 void _vClock(void)
@@ -56,6 +57,17 @@ void _vClock(void)
 
 		u8TimeId++;
 		u8Units++;
+	}
+}
+
+void _vSetTime(void)
+{
+	if((au8Time[Time_enMinId] == 0) && (au8Time[Time_enHrId] == 0))
+	{
+	}
+	else
+	{
+		/* Nothing to do */
 	}
 }
 

@@ -63,21 +63,21 @@ void Comm_vSetReadFlag(void)
 void Comm_SaveNewChar(void)
 {
 	uint8 u8BusSize = 1;
-	uint8 u8Dir = Comm_s_NEW_C;
-	if(au8MyWord[u8Index] == Comm_s_nINIT_LINE)
+	uint8 u8Dir = (uint8)Comm_s_NEW_C;
+	if(au8MyWord[u8Index] == (uint8)Comm_s_nINIT_LINE)
 	{
-		au8MyWord[u8Index+1] = Comm_s_nNEW_LINE;
+		au8MyWord[u8Index+1] = (uint8)Comm_s_nNEW_LINE;
 		u8BusSize = 2;
 		u8Dir = (uint8)Comm_s_INTRO;
 	}
-	if(au8MyWord[u8Index] == Comm_s_nBACKSPACE)
+	if(au8MyWord[u8Index] == (uint8)Comm_s_nBACKSPACE)
 	{
-		au8MyWord[u8Index+1] = Comm_s_nSPACE;
-		au8MyWord[u8Index+2] = Comm_s_nBACKSPACE;
+		au8MyWord[u8Index+1] = (uint8)Comm_s_nSPACE;
+		au8MyWord[u8Index+2] = (uint8)Comm_s_nBACKSPACE;
 		u8BusSize = 3;
-		u8Dir = Comm_s_DELETE_C;
+		u8Dir = (uint8)Comm_s_DELETE_C;
 	}
-	if(u8Dir == 0 && u8Index < (uint8)Comm_nBUS_LENGHT)
+	if(u8Dir == (uint8)Comm_s_NEW_C && u8Index < (uint8)Comm_nBUS_LENGHT)
 	{
 		UART_u8SendData((char*)&au8MyWord[u8Index], u8BusSize);
 		u8Index++;

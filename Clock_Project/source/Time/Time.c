@@ -48,6 +48,11 @@ uint8 TIME_u8GetHrs(void)
     return (uint8)Time_Get_Requested_Time(Time_enHrId);
 }
 
+uint8 TIME_u8GetDay(uint8 u8Days)
+{
+	/*Todo El ultimo elemento es el divisor y u8Days * un numero */
+}
+
 uint8 Time_u8GetReqTime(uint8 u8RequestId)
 {
 	assert(u8RequestId < Time_enTotalReqId);
