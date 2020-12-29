@@ -206,7 +206,7 @@ void OLEDAPI_vInvDisplay(void)
 
 uint8 OLEDAPI_u8SetString(uint8 u8StrId, uint8* pau8Msg, uint8 u8Len)
 {
-	uint8 u8RetVal = N_OK;
+	uint8 u8RetVal = (uint8)N_OK;
 	uint8 i;
 
 	if(u8Len == Clock_stWords[u8StrId].stStrProp.u8Len)
@@ -218,7 +218,7 @@ uint8 OLEDAPI_u8SetString(uint8 u8StrId, uint8* pau8Msg, uint8 u8Len)
 
 		OLEDAPI_vPrint(u8StrId, 0, u8Len);
 
-		u8RetVal = OK;
+		u8RetVal = (uint8)OK;
 	}
 	else
 	{

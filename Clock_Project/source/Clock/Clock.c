@@ -7,14 +7,14 @@
 
 #include "Prototype.h"
 
-#include "Clock.h"
-#include "Clock_def.h"
 
-#include "OLEDAPI_def.h"
 #include "OLEDAPI.h"
 #include "Time.h"
 #include "Comm.h"
 #include "Comm_def.h"
+
+#include "Clock.h"
+#include "Clock_def.h"
 
 typedef enum
 {
@@ -23,25 +23,10 @@ typedef enum
 	Clock_enTotalStates
 }Clock_enClockStates;
 
-typedef struct
-{
-	uint8 u8StringId;
-	uint8 u8Padding;
-	uint8 au8Msg[OLEDAPI_nString_Len];
-}Clock_tstRxMsg;
-
-uint8 _u8NewHour(uint8* pau8NewMsg, uint8 u8Len);
-
-#define String2Uni(c)					(c - 48)
-#define String2Dec(c)					((c - 48) * 10)
-#define String2Num(Msg,pos)				(String2Dec(Msg[pos]) + String2Uni(Msg[pos+1]))
-#define GetRealLen(x)					(x = x - 2)
-
 static uint8 u8Tiks = (uint8)False;
 static uint8 u8StateMachine = Clock_enMinHrs;
 static uint8 u8Digi2Display = 0;
 static uint8 au8Time[Clock_enTotalTimeData] = {0};
-static uint8 (*pfnNewTask[9])(uint8*, uint8) = {_u8NewHour, NULL};
 
 void _vClock(void)
 {
@@ -87,48 +72,9 @@ uint8 _u8NewHour(uint8* pau8NewMsg, uint8 u8Len)
 	}
 	else
 	{
-		u8RetVal = (uint8)-1;
+		u8RetVal = (uint8)N_OK;
 	}
 
-	return u8RetVal;
-}
-
-uint8 _u8CheckMsg(void)
-{
-	uint8 u8CommFlags;
-	Clock_tstRxMsg stMsg;
-	uint8 u8Len;
-	uint8 u8RetVal = N_OK;
-
-	u8CommFlags = Comm_u8GetStatus();
-
-	if(u8CommFlags & Comm_nNew_Msg)
-	{
-		u8Len = Comm_u8GetMsg((uint8*)&stMsg);
-
-		if(u8Len == 1 && stMsg.u8StringId == 'm')
-		{
-			OLEDAPI_vInvDisplay();
-		}
-		else
-		{
-			stMsg.u8StringId = String2Uni(stMsg.u8StringId);
-			GetRealLen(u8Len);
-
-			if(stMsg.u8StringId >= 0 && stMsg.u8StringId <= 9)
-			{
-				u8RetVal = pfnNewTask[stMsg.u8StringId](stMsg.au8Msg, u8Len);
-			}
-			else
-			{
-				/* Nothing to do. */
-			}
-		}
-	}
-	else
-	{
-		/* Nothing to do. */
-	}
 	return u8RetVal;
 }
 
@@ -154,12 +100,8 @@ void _vCheckConfig(void)
 
 }
 
-void Clock_vMonitor(void)
+void Clock_vMonitor(uint8 u8State)
 {
-	uint8 u8State;
-
-	u8State = _u8CheckMsg();
-
 	if(u8State != (uint8)OK)
 	{
 		_vCheckConfig();
