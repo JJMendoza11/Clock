@@ -7,7 +7,7 @@
 
 #include "Prototype.h"
 
-
+#include "OLED.h"
 #include "OLEDAPI.h"
 #include "Time.h"
 #include "Comm.h"
@@ -23,10 +23,83 @@ typedef enum
 	Clock_enTotalStates
 }Clock_enClockStates;
 
+#define CLOCK_FULL_REFRESH_ND	(5)
+
 static uint8 u8Tiks = (uint8)False;
 static uint8 u8StateMachine = Clock_enMinHrs;
 static uint8 u8Digi2Display = 0;
 static uint8 au8Time[Clock_enTotalTimeData] = {0};
+static uint8 au8MonthDeadLine[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+void _vDisplayClock(void)
+{
+	uint8 u8Len = (uint8)(OLEDAPI_enTimeDigit - u8Digi2Display);
+
+	if(u8Len < (uint8)OLEDAPI_enFullMin)
+	{
+		u8Len--;
+	}
+	else
+	{
+		/* Nothing to do. */
+	}
+
+	for(; u8Len < (uint8)OLEDAPI_enTimeDigit; u8Len++)
+	{
+
+		if(u8Len == (uint8)OLEDAPI_enColon)
+		{
+			u8Len++;
+		}
+		else
+		{
+			/*Nothing to do. */
+		}
+
+		OLEDAPI_vDispTime((uint8)OLEDAPI_enTimeString, u8Len);
+	}
+}
+
+
+void _vSetTime(void)
+{
+	if((au8Time[Time_enMinId] == 0) && (au8Time[Time_enHrId] == 0))
+	{
+//		au8Time[Clock_enWeekId] = Time_u8GetReqTime(Time_enDayId);
+
+		if(au8Time[Clock_enDayId] == au8MonthDeadLine[au8Time[Clock_enMonthId]])
+		{
+			au8Time[Clock_enDayId] = 1;
+			if(au8Time[Clock_enMonthId] == 12)
+			{
+				au8Time[Clock_enMonthId] = 0;
+			}
+			else
+			{
+				au8Time[Clock_enMonthId]++;
+			}
+		}
+		else
+		{
+			au8Time[Clock_enDayId]++;
+		}
+
+		if(au8Time[Clock_enWeekId] == 6)
+		{
+			au8Time[Clock_enWeekId] = 0;
+		}
+		else
+		{
+			au8Time[Clock_enWeekId]++;
+		}
+
+		OLEDAPI_vSetWeekDay(au8Time[Clock_enWeekId]);
+		u8Digi2Display = (uint8)CLOCK_FULL_REFRESH_ND;
+	}
+	else
+	{
+		/* Nothing to do */
+	}
+}
 
 void _vClock(void)
 {
@@ -43,17 +116,8 @@ void _vClock(void)
 		u8TimeId++;
 		u8Units++;
 	}
-}
 
-void _vSetTime(void)
-{
-	if((au8Time[Time_enMinId] == 0) && (au8Time[Time_enHrId] == 0))
-	{
-	}
-	else
-	{
-		/* Nothing to do */
-	}
+	_vSetTime();
 }
 
 uint8 _u8NewHour(uint8* pau8NewMsg, uint8 u8Len)
@@ -117,30 +181,13 @@ void Clock_vMonitor(uint8 u8State)
 
 void Clock_vDisplay(void)
 {
-	uint8 u8Len = (uint8)(OLEDAPI_enTimeDigit - u8Digi2Display);
-
-	if(u8Len < (uint8)OLEDAPI_enFullMin)
+	if( u8Digi2Display == (uint8)CLOCK_FULL_REFRESH_ND )
 	{
-		u8Len--;
+		OLED_vRefresh();
 	}
 	else
 	{
-		/* Nothing to do. */
-	}
-
-	for(; u8Len < (uint8)OLEDAPI_enTimeDigit; u8Len++)
-	{
-
-		if(u8Len == (uint8)OLEDAPI_enColon)
-		{
-			u8Len++;
-		}
-		else
-		{
-			/*Nothing to do. */
-		}
-
-		OLEDAPI_vDispTime((uint8)OLEDAPI_enTimeString, u8Len);
+		_vDisplayClock();
 	}
 
 	OLEDAPI_vDispTime((uint8)OLEDAPI_enTimeString, (uint8)OLEDAPI_enColon);

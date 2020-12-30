@@ -55,7 +55,7 @@ static Watch_stStrData Clock_stWords[OLEDAPI_enTotalStrings] = {	{{"00:00"},{{35
 																	{{"M Tu W Th F"}, {{60, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,11}},	\
 																	{{"Sunday"}, {{75, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,6}},			\
 																	{{"Saturday"}, {{68, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255},2,1,8}} };
-static uint8 Clock_u8WeekDay = OLEDAPI_enMonday;
+static uint8 Clock_u8WeekDay = (uint8)OLEDAPI_enSunday;
 static uint8 Clock_u8Invert = (uint8)False;
 
 void _vBasicMenu(void)
@@ -87,7 +87,7 @@ void _vSetDay(void)
 		OLED_vInverse (84, 1, 100, 9);				//Wednesday
 	break;
 	case (uint8)OLEDAPI_enThursday:
-		OLED_vInverse (88, 1, 100, 9);
+		OLED_vInverse (84, 1, 100, 9);
 		OLED_vInverse (100, 1, 114, 9);				//Thursday
 	break;
 	case (uint8)OLEDAPI_enFriday:
@@ -95,7 +95,8 @@ void _vSetDay(void)
 		OLED_vInverse (114, 1, 126, 9);				//Friday
 	break;
 	default:
-		OLED_vInverse (114, 1, 126, 9);
+		OLED_vFillRect(57,1,70,9,0);
+//		OLED_vInverse (114, 1, 126, 9);
 		//SSD1306_DrawText(68, 2, "Saturday", 1);
 		OLEDAPI_vPrint(4,0,Clock_stWords[4].stStrProp.u8Len);
 	break;

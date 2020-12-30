@@ -17,9 +17,10 @@
 #define Time_Hrs2Sec(hrs)						(hrs = (uint32)(hrs * 3600))
 #define Time_Operation(div, mod)				(u32CntReg%mod/div)
 #define Time_Get_Requested_Time(ReqId)			Time_Operation(au32OperatorVals[ReqId], au32OperatorVals[ReqId+1])
+#define Time_ArLEN								(Time_enTotalReqId + 1)
 
 static uint32 u32CntReg = 1;
-static uint32 au32OperatorVals[4] = {1, 60, 3600, 86400};
+static uint32 au32OperatorVals[Time_ArLEN] = {1, 60, 3600, 86400, 604800};
 
 /*Todo realizar APIS para poder configurar el reloj de una forma más facil y poder determinar si ver sec y min o min y hrs
  * Desacoplar la funcion de monitor, que no tenga tata dependencia con Clock_u8WriteDate. u8Write SOLO tiene que pasar el numero a
@@ -43,14 +44,14 @@ uint8 Time_u8GetMin(void)
     return (uint8)Time_Get_Requested_Time(Time_enMinId);
 }
 
-uint8 TIME_u8GetHrs(void)
+uint8 Time_u8GetHrs(void)
 {
     return (uint8)Time_Get_Requested_Time(Time_enHrId);
 }
 
-uint8 TIME_u8GetDay(uint8 u8Days)
+uint8 Time_u8GetDay(void)
 {
-	/*Todo El ultimo elemento es el divisor y u8Days * un numero */
+	return (uint8)Time_Get_Requested_Time(Time_enDayId);
 }
 
 uint8 Time_u8GetReqTime(uint8 u8RequestId)
@@ -81,7 +82,6 @@ void Time_vSetTime(uint32 u32Hrs, uint32 u32Min)
 	Time_Hrs2Sec(u32Hrs);
 
 	u32CntReg = u32Sec + u32Min + u32Hrs;
-
 }
 
 
