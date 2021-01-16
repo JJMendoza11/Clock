@@ -23,13 +23,40 @@ typedef enum
 	Clock_enTotalStates
 }Clock_enClockStates;
 
-#define CLOCK_FULL_REFRESH_ND	(5)
+typedef enum
+{
+	_enJanuary = 0,
+	_enFebruary,
+	_enMarch,
+	_enApril,
+	_enMay,
+	_enJune,
+	_enJuly,
+	_enAugust,
+	_enSeptember,
+	_enOctober,
+	_enNovember,
+	_enDecember,
+	_enTotalMonths
+}Clock_MonthsNames;
+
+typedef struct
+{
+	uint8 au8DeadLine[12];
+	uint8 au8Name[12][3];
+//	"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+}Clock_stMonth;
+
+#define CLOCK_FULL_REFRESH_ND	(5U)
+#define CLOCK_FIRST_DAY			(1U)
 
 static uint8 u8Tiks = (uint8)False;
 static uint8 u8StateMachine = Clock_enMinHrs;
 static uint8 u8Digi2Display = 0;
 static uint8 au8Time[Clock_enTotalTimeData] = {0};
-static uint8 au8MonthDeadLine[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+static const Clock_stMonth stMonthProps = {{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},	\
+		{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}	\
+};
 void _vDisplayClock(void)
 {
 	uint8 u8Len = (uint8)(OLEDAPI_enTimeDigit - u8Digi2Display);
@@ -64,14 +91,12 @@ void _vSetTime(void)
 {
 	if((au8Time[Time_enMinId] == 0) && (au8Time[Time_enHrId] == 0))
 	{
-//		au8Time[Clock_enWeekId] = Time_u8GetReqTime(Time_enDayId);
-
-		if(au8Time[Clock_enDayId] == au8MonthDeadLine[au8Time[Clock_enMonthId]])
+		if(au8Time[Clock_enDayId] == stMonthProps.au8DeadLine[au8Time[Clock_enMonthId]])
 		{
-			au8Time[Clock_enDayId] = 1;
-			if(au8Time[Clock_enMonthId] == 12)
+			au8Time[Clock_enDayId] = (uint8)CLOCK_FIRST_DAY;
+			if(au8Time[Clock_enMonthId] == (uint8)_enDecember)
 			{
-				au8Time[Clock_enMonthId] = 0;
+				au8Time[Clock_enMonthId] = (uint8)_enJanuary;
 			}
 			else
 			{
@@ -83,9 +108,9 @@ void _vSetTime(void)
 			au8Time[Clock_enDayId]++;
 		}
 
-		if(au8Time[Clock_enWeekId] == 6)
+		if(au8Time[Clock_enWeekId] == (uint8)OLEDAPI_enSaturday)
 		{
-			au8Time[Clock_enWeekId] = 0;
+			au8Time[Clock_enWeekId] = (uint8)OLEDAPI_enSunday;
 		}
 		else
 		{
